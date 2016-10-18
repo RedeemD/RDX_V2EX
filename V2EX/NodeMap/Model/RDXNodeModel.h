@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RDXNode : NSObject
+@interface RDXNodeModel : NSObject
 
 @property (nonatomic, assign) NSInteger nodeID;
 @property (nonatomic, assign) NSInteger topics;

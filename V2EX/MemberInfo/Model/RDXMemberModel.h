@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RDXMember : NSObject
+@interface RDXMemberModel : NSObject
 
 //@property (nonatomic, copy) NSString *status;                 // found : notfound
 @property (nonatomic, assign) NSInteger memberID;

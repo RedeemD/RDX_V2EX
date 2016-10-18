@@ -5,12 +5,12 @@
 //  Created by Redeem_D on 2016/10/18.
 //  Copyright © 2016年 Redeem_D. All rights reserved.
 //
-@class RDXMember;
-@class RDXNode;
+@class RDXMemberModel;
+@class RDXNodeModel;
 
 #import <Foundation/Foundation.h>
 
-@interface RDXTopic : NSObject
+@interface RDXTopicModel : NSObject
 
 @property (nonatomic, assign) NSInteger topicID;
 @property (nonatomic, copy) NSString *title;
@@ -18,8 +18,8 @@
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, copy) NSString *content_rendered;
 @property (nonatomic, assign) NSInteger replies;
-@property (nonatomic, strong) RDXMember *member;
-@property (nonatomic, strong) RDXNode *node;
+@property (nonatomic, strong) RDXMemberModel *member;
+@property (nonatomic, strong) RDXNodeModel *node;
 
 
 

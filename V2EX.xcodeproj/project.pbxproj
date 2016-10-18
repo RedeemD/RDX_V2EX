@@ -13,9 +13,9 @@
 		181D1ECA1DB4FB5F001F19DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181D1EC81DB4FB5F001F19DF /* LaunchScreen.storyboard */; };
 		181D1ED51DB4FB5F001F19DF /* V2EXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 181D1ED41DB4FB5F001F19DF /* V2EXTests.m */; };
 		181D1EE01DB4FB5F001F19DF /* V2EXUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 181D1EDF1DB4FB5F001F19DF /* V2EXUITests.m */; };
-		184A7D551DB5C76B005CDC7B /* RDXMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A7D541DB5C76B005CDC7B /* RDXMember.m */; };
-		184A7D581DB5C796005CDC7B /* RDXNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A7D571DB5C796005CDC7B /* RDXNode.m */; };
-		184A7D5B1DB5C7A5005CDC7B /* RDXTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A7D5A1DB5C7A5005CDC7B /* RDXTopic.m */; };
+		184A7D551DB5C76B005CDC7B /* RDXMemberModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A7D541DB5C76B005CDC7B /* RDXMemberModel.m */; };
+		184A7D581DB5C796005CDC7B /* RDXNodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A7D571DB5C796005CDC7B /* RDXNodeModel.m */; };
+		184A7D5B1DB5C7A5005CDC7B /* RDXTopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A7D5A1DB5C7A5005CDC7B /* RDXTopicModel.m */; };
 		579051F4901933BC9E6E4B1D /* libPods-V2EXTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71B9A123AF18AC0FD90EB547 /* libPods-V2EXTests.a */; };
 		BB276FBDEC72A38FB5239092 /* libPods-V2EX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF6D1B6705E1C3D6F81C9EE9 /* libPods-V2EX.a */; };
 		CA05B0E98AB1578FF74F02C4 /* libPods-V2EXUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF1CAD381497BCE16EBCC60 /* libPods-V2EXUITests.a */; };
@@ -53,12 +53,12 @@
 		181D1EDB1DB4FB5F001F19DF /* V2EXUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = V2EXUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		181D1EDF1DB4FB5F001F19DF /* V2EXUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = V2EXUITests.m; sourceTree = "<group>"; };
 		181D1EE11DB4FB5F001F19DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		184A7D531DB5C76B005CDC7B /* RDXMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXMember.h; sourceTree = "<group>"; };
-		184A7D541DB5C76B005CDC7B /* RDXMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXMember.m; sourceTree = "<group>"; };
-		184A7D561DB5C796005CDC7B /* RDXNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXNode.h; sourceTree = "<group>"; };
-		184A7D571DB5C796005CDC7B /* RDXNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXNode.m; sourceTree = "<group>"; };
-		184A7D591DB5C7A5005CDC7B /* RDXTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXTopic.h; sourceTree = "<group>"; };
-		184A7D5A1DB5C7A5005CDC7B /* RDXTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXTopic.m; sourceTree = "<group>"; };
+		184A7D531DB5C76B005CDC7B /* RDXMemberModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXMemberModel.h; sourceTree = "<group>"; };
+		184A7D541DB5C76B005CDC7B /* RDXMemberModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXMemberModel.m; sourceTree = "<group>"; };
+		184A7D561DB5C796005CDC7B /* RDXNodeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXNodeModel.h; sourceTree = "<group>"; };
+		184A7D571DB5C796005CDC7B /* RDXNodeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXNodeModel.m; sourceTree = "<group>"; };
+		184A7D591DB5C7A5005CDC7B /* RDXTopicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXTopicModel.h; sourceTree = "<group>"; };
+		184A7D5A1DB5C7A5005CDC7B /* RDXTopicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXTopicModel.m; sourceTree = "<group>"; };
 		38F02E203308EEC47ED6C715 /* Pods-V2EXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V2EXTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-V2EXTests/Pods-V2EXTests.debug.xcconfig"; sourceTree = "<group>"; };
 		66387D80FAA60C1E81124FF8 /* Pods-V2EXUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V2EXUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-V2EXUITests/Pods-V2EXUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6AF1CAD381497BCE16EBCC60 /* libPods-V2EXUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-V2EXUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,8 +199,8 @@
 		184A7D471DB5C31A005CDC7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				184A7D531DB5C76B005CDC7B /* RDXMember.h */,
-				184A7D541DB5C76B005CDC7B /* RDXMember.m */,
+				184A7D531DB5C76B005CDC7B /* RDXMemberModel.h */,
+				184A7D541DB5C76B005CDC7B /* RDXMemberModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -232,8 +232,8 @@
 		184A7D4B1DB5C31A005CDC7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				184A7D561DB5C796005CDC7B /* RDXNode.h */,
-				184A7D571DB5C796005CDC7B /* RDXNode.m */,
+				184A7D561DB5C796005CDC7B /* RDXNodeModel.h */,
+				184A7D571DB5C796005CDC7B /* RDXNodeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -272,8 +272,8 @@
 		184A7D501DB5C31A005CDC7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				184A7D591DB5C7A5005CDC7B /* RDXTopic.h */,
-				184A7D5A1DB5C7A5005CDC7B /* RDXTopic.m */,
+				184A7D591DB5C7A5005CDC7B /* RDXTopicModel.h */,
+				184A7D5A1DB5C7A5005CDC7B /* RDXTopicModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -581,11 +581,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				184A7D581DB5C796005CDC7B /* RDXNode.m in Sources */,
-				184A7D551DB5C76B005CDC7B /* RDXMember.m in Sources */,
+				184A7D581DB5C796005CDC7B /* RDXNodeModel.m in Sources */,
+				184A7D551DB5C76B005CDC7B /* RDXMemberModel.m in Sources */,
 				181D1EBF1DB4FB5F001F19DF /* AppDelegate.m in Sources */,
 				181D1EBC1DB4FB5F001F19DF /* main.m in Sources */,
-				184A7D5B1DB5C7A5005CDC7B /* RDXTopic.m in Sources */,
+				184A7D5B1DB5C7A5005CDC7B /* RDXTopicModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
