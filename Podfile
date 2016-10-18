@@ -7,6 +7,8 @@ target 'V2EX' do
 
   # Pods for V2EX
   pod 'AFNetworking', '~> 3.1.0'
+  pod 'YYModel', '~> 1.0.4'
+  pod 'Masonry', '~> 1.0.2'
 
   target 'V2EXTests' do
     inherit! :search_paths
