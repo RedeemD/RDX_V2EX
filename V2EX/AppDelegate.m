@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "RDXRootViewController.h"
+
+#import "RDXMenuView.h"
 
 @interface AppDelegate ()
 
@@ -20,13 +23,25 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor clearColor];
 #warning window.rootViewController not right
-    self.window.rootViewController = [[UIViewController alloc] init];
+    UIViewController *rootVC = [[RDXRootViewController alloc] init];
+    rootVC.view.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = rootVC;
     [self.window makeKeyAndVisible];
     
+#warning test
+    RDXMenuView *menuView = [[RDXMenuView alloc] initWithFrame:CGRectMake(0, 0, 200, 667)];
+    [rootVC.view addSubview:menuView];
+    
+//    RDXNodeNameLabel *nodeLabel = [[RDXNodeNameLabel alloc] initWithText:@"酷工作"];
+//    nodeLabel.center = CGPointMake(200, 200);
+//    [rootVC.view addSubview:nodeLabel];
     
     return YES;
 }
 
+- (void)setupRootViewController {
+    
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

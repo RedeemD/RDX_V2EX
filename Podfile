@@ -9,13 +9,9 @@ target 'V2EX' do
   pod 'AFNetworking', '~> 3.1.0'
   pod 'YYModel', '~> 1.0.4'
   pod 'Masonry', '~> 1.0.2'
+  pod 'SDWebImage', '~> 4.0.0-beta2'
 
   target 'V2EXTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'V2EXUITests' do
     inherit! :search_paths
     # Pods for testing
   end
