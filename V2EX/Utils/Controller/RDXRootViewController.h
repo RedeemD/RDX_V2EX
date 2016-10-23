@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSUInteger, RDXMenuSectionType) {
-    RDXMenuSectionTypeLatest,
+ // RDXMenuSectionTypeNone,
+    RDXMenuSectionTypeLatest = 1,               // 把 0 作为未初始化状态，空缺
     RDXMenuSectionTypeHot,
     RDXMenuSectionTypeFavor,
     RDXMenuSectionTypeNode,
@@ -17,7 +18,7 @@ typedef NS_ENUM(NSUInteger, RDXMenuSectionType) {
     RDXMenuSectionTypeSetting,
 };
 
-@interface RDXRootViewController : UINavigationController
+@interface RDXRootViewController : UIViewController
 
 - (void)showSection:(RDXMenuSectionType)section animated:(BOOL)animated;
 

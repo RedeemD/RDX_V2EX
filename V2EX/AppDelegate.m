@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RDXRootViewController.h"
+#import <AFNetworkReachabilityManager.h>
 
 #import "RDXMenuView.h"
 
@@ -20,17 +21,27 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    // 网络状态监视器
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    
+    // 设置网络缓存
+    NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:5 * 1024 * 1024
+                                                         diskCapacity:10 * 1024 *1024
+                                                             diskPath:nil];
+    [NSURLCache setSharedURLCache:URLCache];
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor clearColor];
 #warning window.rootViewController not right
-    UIViewController *rootVC = [[RDXRootViewController alloc] init];
+    RDXRootViewController *rootVC = [[RDXRootViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:rootVC];
     rootVC.view.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = rootVC;
+    self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     
 #warning test
-    RDXMenuView *menuView = [[RDXMenuView alloc] initWithFrame:CGRectMake(0, 0, 200, 667)];
-    [rootVC.view addSubview:menuView];
+//    RDXMenuView *menuView = [[RDXMenuView alloc] initWithFrame:CGRectMake(0, 0, 200, 667)];
+//    [rootVC.view addSubview:menuView];
     
 //    RDXNodeNameLabel *nodeLabel = [[RDXNodeNameLabel alloc] initWithText:@"酷工作"];
 //    nodeLabel.center = CGPointMake(200, 200);

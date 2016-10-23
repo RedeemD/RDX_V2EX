@@ -9,6 +9,8 @@
 
 #import <UIKit/UIKit.h>
 
+extern const CGFloat RDXTopicCellHeight;
+
 @interface RDXTopicCell : UITableViewCell
 
 @property (nonatomic, strong) RDXTopicModel *topicModel;

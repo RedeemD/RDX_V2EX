@@ -8,11 +8,14 @@
 
 #import "RDXNodeNameLabel.h"
 
+static const CGFloat kNodeNameLabelFontSize = 14;
+
 @implementation RDXNodeNameLabel
 
 // 根据节点名初始化
-- (instancetype)initWithText:(NSString *)text {
-    self = [super initWithFrame:CGRectZero];
+//- (instancetype)initWithText:(NSString *)text {
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
     if (self) {
         // 仿照 V2EX 站内节点颜色
         self.backgroundColor = [UIColor colorWithRed:245/255.f
@@ -23,16 +26,16 @@
                                                green:153/255.f
                                                 blue:153/255.f
                                                alpha:1.f];
-        self.font = [UIFont systemFontOfSize:14];
-        self.text = text;
+        self.font = [UIFont systemFontOfSize:kNodeNameLabelFontSize];
+//        self.text = text;
     }
     return self;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    // Masonry 布局，舍弃 frame
-    return [self initWithText:nil];
-}
+//- (instancetype)initWithFrame:(CGRect)frame {
+//    // Masonry 布局，舍弃 frame
+//    return [self initWithText:nil];
+//}
 
 // 略微拓宽背景色块，并返回原 text
 - (void)setText:(NSString *)text {

@@ -10,7 +10,7 @@
 
 @interface RDXDataSource ()
 
-@property (nonatomic, strong) NSArray *items;
+@property (nonatomic, strong) NSMutableArray *items;
 @property (nonatomic, copy) NSString *cellIdentifier;
 @property (nonatomic, copy) TableViewCellConfigBlock configCellBlock;
 
@@ -23,7 +23,7 @@
               configCellBlock:(TableViewCellConfigBlock)configCellBlock {
     self = [super init];
     if (self) {
-        _items = items;
+        _items = items.mutableCopy;
         _cellIdentifier = cellIdentifier;
         _configCellBlock = configCellBlock;
     }

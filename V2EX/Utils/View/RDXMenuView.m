@@ -27,11 +27,13 @@ static const CGFloat kMenuSectionCellHeight = 50;
     self = [super initWithFrame:frame];
     if (self) {
         [self customUI];
+        [self prepareData];
     }
     return self;
 }
 
 - (void)customUI {
+    
     
     RDXMenuHeaderView *headerView =
       [[RDXMenuHeaderView alloc] initWithFrame:CGRectMake(0, 0, 200, 110)];
@@ -44,7 +46,8 @@ static const CGFloat kMenuSectionCellHeight = 50;
         tableView.delegate   = self;
         tableView.dataSource = self;
         tableView.rowHeight  = kMenuSectionCellHeight;
-        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        tableView.tableHeaderView = headerView;
+        tableView.separatorStyle  = UITableViewCellSeparatorStyleNone;
         [self addSubview:tableView];
         tableView;
     });

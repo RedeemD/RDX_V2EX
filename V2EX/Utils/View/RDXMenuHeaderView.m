@@ -31,9 +31,10 @@
     _avatarView = ({
 //        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(30, 30, 60, 60)];
         UIImageView *imageView = [[UIImageView alloc] init];
+        imageView.backgroundColor = [UIColor cyanColor];
         [self addSubview:imageView];
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.top.mas_equalTo(30);
+            make.left.top.offset(30);
             make.width.height.mas_equalTo(60);
         }];
         imageView;
@@ -41,7 +42,7 @@
     
     _lineView = ({
         UIView *view = [[UIView alloc] init];
-        view.backgroundColor = [UIColor lightGrayColor];
+        view.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1.f];
         [self addSubview:view];
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.equalTo(self);

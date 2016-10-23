@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-typedef void (^TableViewCellConfigBlock)(UITableViewCell *, id);
+typedef void (^TableViewCellConfigBlock)(UITableViewCell *cell, id item);
 
 @interface RDXDataSource : NSObject <UITableViewDataSource>
 
