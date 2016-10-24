@@ -40,7 +40,7 @@
 
 #pragma mark - GET
 
-- (void)getLatestTopicListWithCompletionHandler:(RDXRequestHandler)handler {
+- (void)getLatestTopicListWithCompletionHandler:(RDXResponseHandler)handler {
     [self.manager GET:RDXLatestTopicsURL
            parameters:nil progress:nil
               success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -52,8 +52,8 @@
 }
 
 - (void)getTopicListWithParameters:(NSDictionary *)params
-                 completionHandler:(RDXRequestHandler)handler {
-    
+                 completionHandler:(RDXResponseHandler)handler {
+    RDXLog(@"%@", params);
     [self.manager GET:RDXTopicListURL
            parameters:params
              progress:nil
@@ -66,27 +66,27 @@
 }
 
 - (void)getTopicDetailWithTopicID:(NSString *)topicID
-                completionHandler:(RDXRequestHandler)handler {
+                completionHandler:(RDXResponseHandler)handler {
     NSDictionary *param = @{ @"id": topicID };
     [self getTopicListWithParameters:param completionHandler:handler];
 }
 
 - (void)getTopicListWithNodeID:(NSString *)nodeID
                           page:(NSInteger)page
-             completionHandler:(RDXRequestHandler)handler {
+             completionHandler:(RDXResponseHandler)handler {
     NSDictionary *params = @{ @"node_id": nodeID, @"p": @(page) };
     [self getTopicListWithParameters:params completionHandler:handler];
 }
-- (void)getTopicListWithNodeName:(NSString *)nodeID
+- (void)getTopicListWithNodeName:(NSString *)nodeName
                             page:(NSInteger)page
-               completionHandler:(RDXRequestHandler)handler {
-    NSDictionary *params = @{ @"node_name": nodeID, @"p": @(page) };
+               completionHandler:(RDXResponseHandler)handler {
+    NSDictionary *params = @{ @"node_name": nodeName, @"p": @(page) };
     [self getTopicListWithParameters:params completionHandler:handler];
 }
-- (void)getTopicListWithUserName:(NSString *)nodeID
+- (void)getTopicListWithUserName:(NSString *)username
                             page:(NSInteger)page
-               completionHandler:(RDXRequestHandler)handler {
-    NSDictionary *params = @{ @"username": nodeID, @"p": @(page) };
+               completionHandler:(RDXResponseHandler)handler {
+    NSDictionary *params = @{ @"username": username, @"p": @(page) };
     [self getTopicListWithParameters:params completionHandler:handler];
 }
 

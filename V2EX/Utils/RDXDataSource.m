@@ -7,6 +7,8 @@
 //
 
 #import "RDXDataSource.h"
+#import "RDXConfigCellProtocol.h"
+#import <YYModel.h>
 
 @interface RDXDataSource ()
 
@@ -18,14 +20,15 @@
 
 @implementation RDXDataSource
 
-- (instancetype)initWithItems:(NSArray *)items
-               cellIdentifier:(NSString *)cellIdentifier
-              configCellBlock:(TableViewCellConfigBlock)configCellBlock {
+- (instancetype)initWithCellIdentifier:(NSString *)cellIdentifier {
+//- (instancetype)initWithItems:(NSArray *)items
+//               cellIdentifier:(NSString *)cellIdentifier
+//              configCellBlock:(TableViewCellConfigBlock)configCellBlock {
     self = [super init];
     if (self) {
-        _items = items.mutableCopy;
+        _items = [NSMutableArray array];
         _cellIdentifier = cellIdentifier;
-        _configCellBlock = configCellBlock;
+//        _configCellBlock = configCellBlock;
     }
     return self;
 }
@@ -34,20 +37,34 @@
     return self.items[indexPath.row];
 }
 
+- (void)appendItemsNamed:(NSString *)name fromArray:(NSArray *)dataArray {
+    Class modelClass = NSClassFromString(name);
+    for (NSDictionary *dict in dataArray) {
+        NSObject *model = [modelClass yy_modelWithDictionary:dict];
+        [self.items addObject:model];
+    }
+}
+
+- (void)refreshItemsNamed:(NSString *)name fromArray:(NSArray *)dataArray {
+    [self.items removeAllObjects];
+    [self appendItemsNamed:name fromArray:dataArray];
+}
+
 #pragma mark - Data Source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.items.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier
-                                                            forIndexPath:indexPath];
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell<RDXConfigCellProtocol> *cell =
+      [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier
+                                      forIndexPath:indexPath];
     
     id item = [self itemAtIndexPath:indexPath];
-    if (self.configCellBlock) {
-        self.configCellBlock(cell, item);
-    }
+    [cell fillDataWithModel:item];
     return cell;
 }
 

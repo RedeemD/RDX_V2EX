@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^RDXRequestHandler)(id responseObject, NSError *error);
+typedef void (^RDXResponseHandler)(id responseObject, NSError *error);
 
 @interface RDXNetworkManager : NSObject
 
@@ -16,22 +16,22 @@ typedef void (^RDXRequestHandler)(id responseObject, NSError *error);
 
 #pragma mark - GET
 
-- (void)getLatestTopicListWithCompletionHandler:(RDXRequestHandler)handler;
+- (void)getLatestTopicListWithCompletionHandler:(RDXResponseHandler)handler;
 
 - (void)getTopicDetailWithTopicID:(NSString *)topicID
-                completionHandler:(RDXRequestHandler)handler;
+                completionHandler:(RDXResponseHandler)handler;
 
 - (void)getTopicListWithNodeID:(NSString *)nodeID
                           page:(NSInteger)page
-             completionHandler:(RDXRequestHandler)handler;
+             completionHandler:(RDXResponseHandler)handler;
 
 - (void)getTopicListWithNodeName:(NSString *)nodeName
                             page:(NSInteger)page
-               completionHandler:(RDXRequestHandler)handler;
+               completionHandler:(RDXResponseHandler)handler;
 
 - (void)getTopicListWithUserName:(NSString *)username
                             page:(NSInteger)page
-               completionHandler:(RDXRequestHandler)handler;
+               completionHandler:(RDXResponseHandler)handler;
 
 
 @end

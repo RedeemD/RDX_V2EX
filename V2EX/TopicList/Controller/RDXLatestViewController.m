@@ -7,7 +7,10 @@
 //
 
 #import "RDXLatestViewController.h"
+#import "RDXTopicCell.h"
 #import "RDXDataSource.h"
+#import "RDXNetworkManager.h"
+#import <MJRefresh.h>
 
 static NSString *const kTopicCellIdentifier = @"topicCellIdentifier";
 
@@ -23,6 +26,7 @@ static NSString *const kTopicCellIdentifier = @"topicCellIdentifier";
     [super viewDidLoad];
     
     [self setupDataSource];
+    [self setupTableView];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -31,15 +35,47 @@ static NSString *const kTopicCellIdentifier = @"topicCellIdentifier";
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)setupTableView {
+    
+    [self.tableView registerClass:[RDXTopicCell class]
+           forCellReuseIdentifier:kTopicCellIdentifier];
+    
+    __weak typeof(self) weakSelf = self;
+    RDXResponseHandler responseHandler = ^(id responseObject, NSError *error) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if (!responseObject) {
+            [strongSelf.tableView.mj_header endRefreshing];
+            return ;
+        }
+        [strongSelf.dataSource refreshItemsNamed:@"RDXTopicModel" fromArray:responseObject];
+        [strongSelf.tableView reloadData];
+        [strongSelf.tableView.mj_header endRefreshing];
+    };
+    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        __strong typeof(weakSelf) strongSelf = weakSelf;
+        RDXNetworkManager *manager = [RDXNetworkManager sharedManager];
+        [manager getLatestTopicListWithCompletionHandler:responseHandler];
+//        [manager getTopicListWithNodeName:@"python"
+//                                     page:0
+//                        completionHandler:responseHandler];
+//        strongSelf.dataSource refreshItemsNamed:@"RDXTopicModel" fromArray:
+    }];
+    
+    [self.tableView.mj_header beginRefreshing];
+}
+
 - (void)setupDataSource {
     
     
-    TableViewCellConfigBlock configCellBlock = ^(UITableViewCell *cell, id item) {
-        
-    };
-    self.dataSource = [[RDXDataSource alloc] initWithItems:@[]
-                                        cellIdentifier:kTopicCellIdentifier
-                                       configCellBlock:configCellBlock];
+    
+//    TableViewCellConfigBlock configCellBlock = ^(UITableViewCell *cell, id item) {
+//
+//    };
+//    self.dataSource = [[RDXDataSource alloc] initWithItems:@[]
+//                                        cellIdentifier:kTopicCellIdentifier
+//                                       configCellBlock:configCellBlock];
+    self.dataSource = [[RDXDataSource alloc] initWithCellIdentifier:kTopicCellIdentifier];
     
     self.tableView.dataSource = self.dataSource;
 }

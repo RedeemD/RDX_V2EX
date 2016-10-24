@@ -7,7 +7,16 @@
 //
 
 #import "RDXMemberModel.h"
+#import <YYModel.h>
+
+@interface RDXMemberModel () <YYModel>
+
+@end
 
 @implementation RDXMemberModel
+
++ (NSDictionary<NSString *,id> *)modelCustomPropertyMapper {
+    return @{ @"memberID": @"id" };
+}
 
 @end

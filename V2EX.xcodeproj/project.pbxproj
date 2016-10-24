@@ -71,6 +71,7 @@
 		1827F9D61DBC957C003E8F72 /* RDXURLConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXURLConst.m; sourceTree = "<group>"; };
 		1827F9D81DBC9592003E8F72 /* RDXConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXConst.h; sourceTree = "<group>"; };
 		1827F9D91DBC9592003E8F72 /* RDXConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXConst.m; sourceTree = "<group>"; };
+		1827F9E21DBDEB6D003E8F72 /* RDXConfigCellProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RDXConfigCellProtocol.h; sourceTree = "<group>"; };
 		184A7D531DB5C76B005CDC7B /* RDXMemberModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXMemberModel.h; sourceTree = "<group>"; };
 		184A7D541DB5C76B005CDC7B /* RDXMemberModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXMemberModel.m; sourceTree = "<group>"; };
 		184A7D561DB5C796005CDC7B /* RDXNodeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXNodeModel.h; sourceTree = "<group>"; };
@@ -174,6 +175,7 @@
 			children = (
 				1825DE731DB894FB003045BC /* Category */,
 				1825DE741DB89526003045BC /* Controller */,
+				1827F9E11DBDC01C003E8F72 /* Protocol */,
 				1825DE661DB750DA003045BC /* View */,
 				18CA773E1DBA3CFA006545FF /* RDXDataSource.h */,
 				18CA773F1DBA3CFA006545FF /* RDXDataSource.m */,
@@ -210,6 +212,14 @@
 				1825DE761DB8956C003045BC /* RDXRootViewController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		1827F9E11DBDC01C003E8F72 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				1827F9E21DBDEB6D003E8F72 /* RDXConfigCellProtocol.h */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		184A7D431DB5C31A005CDC7B /* Const */ = {

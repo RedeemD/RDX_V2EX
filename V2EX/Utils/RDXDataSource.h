@@ -13,11 +13,15 @@ typedef void (^TableViewCellConfigBlock)(UITableViewCell *cell, id item);
 
 @interface RDXDataSource : NSObject <UITableViewDataSource>
 
-- (instancetype)initWithItems:(NSArray *)items
-               cellIdentifier:(NSString *)cellIdentifier
-              configCellBlock:(TableViewCellConfigBlock)configCellBlock NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCellIdentifier:(NSString *)cellIdentifier;
+//- (instancetype)initWithItems:(NSArray *)items
+//               cellIdentifier:(NSString *)cellIdentifier
+//              configCellBlock:(TableViewCellConfigBlock)configCellBlock NS_DESIGNATED_INITIALIZER;
 - (instancetype)init NS_UNAVAILABLE;
 
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath;
+
+- (void)appendItemsNamed:(NSString *)name fromArray:(NSArray *)dataArray;
+- (void)refreshItemsNamed:(NSString *)name fromArray:(NSArray *)dataArray;
 
 @end

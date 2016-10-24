@@ -7,7 +7,18 @@
 //
 
 #import "RDXTopicModel.h"
+#import "RDXNodeModel.h"
+#import "RDXMemberModel.h"
+#import <YYModel.h>
+
+@interface RDXTopicModel () <YYModel>
+
+@end
 
 @implementation RDXTopicModel
+
++ (NSDictionary<NSString *,id> *)modelCustomPropertyMapper {
+    return @{ @"topicID": @"id" };
+}
 
 @end
