@@ -40,6 +40,9 @@ static NSString *const kTopicCellIdentifier = @"topicCellIdentifier";
     [self.tableView registerClass:[RDXTopicCell class]
            forCellReuseIdentifier:kTopicCellIdentifier];
     
+    self.tableView.estimatedRowHeight = 70;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
     __weak typeof(self) weakSelf = self;
     RDXResponseHandler responseHandler = ^(id responseObject, NSError *error) {
         __strong typeof(weakSelf) strongSelf = weakSelf;

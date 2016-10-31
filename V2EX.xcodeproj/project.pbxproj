@@ -12,6 +12,9 @@
 		181D1EC71DB4FB5F001F19DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 181D1EC61DB4FB5F001F19DF /* Assets.xcassets */; };
 		181D1ECA1DB4FB5F001F19DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181D1EC81DB4FB5F001F19DF /* LaunchScreen.storyboard */; };
 		181D1ED51DB4FB5F001F19DF /* V2EXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 181D1ED41DB4FB5F001F19DF /* V2EXTests.m */; };
+		182596461DC6E5BE00B59B5F /* RDXDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182596451DC6E5BE00B59B5F /* RDXDotView.m */; };
+		182596491DC7357B00B59B5F /* RDXMemberLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 182596481DC7357B00B59B5F /* RDXMemberLabel.m */; };
+		1825964C1DC77CD900B59B5F /* UIView+RDXHierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1825964B1DC77CD900B59B5F /* UIView+RDXHierarchy.m */; };
 		1825DE631DB73515003045BC /* RDXTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1825DE621DB73515003045BC /* RDXTopicCell.m */; };
 		1825DE691DB75921003045BC /* RDXNodeNameLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1825DE681DB75921003045BC /* RDXNodeNameLabel.m */; };
 		1825DE771DB8956C003045BC /* RDXRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1825DE761DB8956C003045BC /* RDXRootViewController.m */; };
@@ -21,6 +24,9 @@
 		1827F9D41DBC662D003E8F72 /* RDXNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1827F9D31DBC662D003E8F72 /* RDXNetworkManager.m */; };
 		1827F9D71DBC957C003E8F72 /* RDXURLConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 1827F9D61DBC957C003E8F72 /* RDXURLConst.m */; };
 		1827F9DA1DBC9592003E8F72 /* RDXConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 1827F9D91DBC9592003E8F72 /* RDXConst.m */; };
+		1827F9E61DBF3CD8003E8F72 /* UIView+RDXGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 1827F9E51DBF3CD8003E8F72 /* UIView+RDXGeometry.m */; };
+		1827F9E91DBF8E96003E8F72 /* RDXTimeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1827F9E81DBF8E96003E8F72 /* RDXTimeLabel.m */; };
+		1827F9EC1DBF9366003E8F72 /* UIColor+RDXCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 1827F9EB1DBF9366003E8F72 /* UIColor+RDXCommon.m */; };
 		184A7D551DB5C76B005CDC7B /* RDXMemberModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A7D541DB5C76B005CDC7B /* RDXMemberModel.m */; };
 		184A7D581DB5C796005CDC7B /* RDXNodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A7D571DB5C796005CDC7B /* RDXNodeModel.m */; };
 		184A7D5B1DB5C7A5005CDC7B /* RDXTopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A7D5A1DB5C7A5005CDC7B /* RDXTopicModel.m */; };
@@ -52,6 +58,12 @@
 		181D1ED01DB4FB5F001F19DF /* V2EXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = V2EXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		181D1ED41DB4FB5F001F19DF /* V2EXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = V2EXTests.m; sourceTree = "<group>"; };
 		181D1ED61DB4FB5F001F19DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		182596441DC6E5BE00B59B5F /* RDXDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXDotView.h; sourceTree = "<group>"; };
+		182596451DC6E5BE00B59B5F /* RDXDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXDotView.m; sourceTree = "<group>"; };
+		182596471DC7357B00B59B5F /* RDXMemberLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXMemberLabel.h; sourceTree = "<group>"; };
+		182596481DC7357B00B59B5F /* RDXMemberLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXMemberLabel.m; sourceTree = "<group>"; };
+		1825964A1DC77CD900B59B5F /* UIView+RDXHierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RDXHierarchy.h"; sourceTree = "<group>"; };
+		1825964B1DC77CD900B59B5F /* UIView+RDXHierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RDXHierarchy.m"; sourceTree = "<group>"; };
 		1825DE601DB6FD0C003045BC /* V2EX.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V2EX.pch; sourceTree = "<group>"; };
 		1825DE611DB73515003045BC /* RDXTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXTopicCell.h; sourceTree = "<group>"; };
 		1825DE621DB73515003045BC /* RDXTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXTopicCell.m; sourceTree = "<group>"; };
@@ -72,6 +84,12 @@
 		1827F9D81DBC9592003E8F72 /* RDXConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXConst.h; sourceTree = "<group>"; };
 		1827F9D91DBC9592003E8F72 /* RDXConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXConst.m; sourceTree = "<group>"; };
 		1827F9E21DBDEB6D003E8F72 /* RDXConfigCellProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RDXConfigCellProtocol.h; sourceTree = "<group>"; };
+		1827F9E41DBF3CD8003E8F72 /* UIView+RDXGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RDXGeometry.h"; sourceTree = "<group>"; };
+		1827F9E51DBF3CD8003E8F72 /* UIView+RDXGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RDXGeometry.m"; sourceTree = "<group>"; };
+		1827F9E71DBF8E96003E8F72 /* RDXTimeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXTimeLabel.h; sourceTree = "<group>"; };
+		1827F9E81DBF8E96003E8F72 /* RDXTimeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXTimeLabel.m; sourceTree = "<group>"; };
+		1827F9EA1DBF9366003E8F72 /* UIColor+RDXCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RDXCommon.h"; sourceTree = "<group>"; };
+		1827F9EB1DBF9366003E8F72 /* UIColor+RDXCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RDXCommon.m"; sourceTree = "<group>"; };
 		184A7D531DB5C76B005CDC7B /* RDXMemberModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXMemberModel.h; sourceTree = "<group>"; };
 		184A7D541DB5C76B005CDC7B /* RDXMemberModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXMemberModel.m; sourceTree = "<group>"; };
 		184A7D561DB5C796005CDC7B /* RDXNodeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXNodeModel.h; sourceTree = "<group>"; };
@@ -194,6 +212,12 @@
 				1825DE791DB8B04D003045BC /* RDXMenuView.m */,
 				18CA77411DBA5691006545FF /* RDXMenuHeaderView.h */,
 				18CA77421DBA5691006545FF /* RDXMenuHeaderView.m */,
+				1827F9E71DBF8E96003E8F72 /* RDXTimeLabel.h */,
+				1827F9E81DBF8E96003E8F72 /* RDXTimeLabel.m */,
+				182596441DC6E5BE00B59B5F /* RDXDotView.h */,
+				182596451DC6E5BE00B59B5F /* RDXDotView.m */,
+				182596471DC7357B00B59B5F /* RDXMemberLabel.h */,
+				182596481DC7357B00B59B5F /* RDXMemberLabel.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -201,6 +225,12 @@
 		1825DE731DB894FB003045BC /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				1827F9E41DBF3CD8003E8F72 /* UIView+RDXGeometry.h */,
+				1827F9E51DBF3CD8003E8F72 /* UIView+RDXGeometry.m */,
+				1827F9EA1DBF9366003E8F72 /* UIColor+RDXCommon.h */,
+				1827F9EB1DBF9366003E8F72 /* UIColor+RDXCommon.m */,
+				1825964A1DC77CD900B59B5F /* UIView+RDXHierarchy.h */,
+				1825964B1DC77CD900B59B5F /* UIView+RDXHierarchy.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -577,9 +607,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1827F9E61DBF3CD8003E8F72 /* UIView+RDXGeometry.m in Sources */,
 				184A7D581DB5C796005CDC7B /* RDXNodeModel.m in Sources */,
 				184A7D551DB5C76B005CDC7B /* RDXMemberModel.m in Sources */,
+				182596461DC6E5BE00B59B5F /* RDXDotView.m in Sources */,
 				1827F9D11DBC5FA4003E8F72 /* RDXLatestViewController.m in Sources */,
+				1827F9E91DBF8E96003E8F72 /* RDXTimeLabel.m in Sources */,
 				18CA77401DBA3CFA006545FF /* RDXDataSource.m in Sources */,
 				181D1EBF1DB4FB5F001F19DF /* AppDelegate.m in Sources */,
 				1827F9D41DBC662D003E8F72 /* RDXNetworkManager.m in Sources */,
@@ -587,12 +620,15 @@
 				181D1EBC1DB4FB5F001F19DF /* main.m in Sources */,
 				1825DE691DB75921003045BC /* RDXNodeNameLabel.m in Sources */,
 				1825DE631DB73515003045BC /* RDXTopicCell.m in Sources */,
+				182596491DC7357B00B59B5F /* RDXMemberLabel.m in Sources */,
 				1827F9DA1DBC9592003E8F72 /* RDXConst.m in Sources */,
 				1825DE7D1DB8C1E7003045BC /* RDXMenuCell.m in Sources */,
 				18CA77431DBA5691006545FF /* RDXMenuHeaderView.m in Sources */,
 				184A7D5B1DB5C7A5005CDC7B /* RDXTopicModel.m in Sources */,
 				1825DE7A1DB8B04D003045BC /* RDXMenuView.m in Sources */,
+				1827F9EC1DBF9366003E8F72 /* UIColor+RDXCommon.m in Sources */,
 				1827F9D71DBC957C003E8F72 /* RDXURLConst.m in Sources */,
+				1825964C1DC77CD900B59B5F /* UIView+RDXHierarchy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

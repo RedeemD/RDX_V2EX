@@ -9,6 +9,8 @@
 #import "RDXRootViewController.h"
 #import "RDXLatestViewController.h"
 
+#import "UIView+RDXGeometry.h"
+
 static const NSTimeInterval kTransitionAnimationDuration = 0.4;
 
 @interface RDXRootViewController ()
@@ -40,6 +42,8 @@ static const NSTimeInterval kTransitionAnimationDuration = 0.4;
 
 - (void)configureViewControllers {
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     _topicListController = ({
         RDXLatestViewController *latestVC = [[RDXLatestViewController alloc] init];
         latestVC.view.backgroundColor = [UIColor orangeColor];
@@ -47,6 +51,9 @@ static const NSTimeInterval kTransitionAnimationDuration = 0.4;
     });
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return NO;
+}
 #pragma mark - Section Transition
 
 - (void)showSection:(RDXMenuSectionType)section animated:(BOOL)animated {
@@ -58,6 +65,11 @@ static const NSTimeInterval kTransitionAnimationDuration = 0.4;
     
     UIViewController *viewController = [self viewControllerForSection:section];
     UIViewController *currentVC      = [self viewControllerForSection:_currentSection];
+    
+    // 调整子视图控制器 view 的位置
+    viewController.view.y = 64;
+    viewController.view.height = RDXScreenHeight - 64;
+    
     [self addChildViewController:viewController];
     
     if (!currentVC) {
@@ -71,11 +83,13 @@ static const NSTimeInterval kTransitionAnimationDuration = 0.4;
         void (^completionHandler)(BOOL) = ^(BOOL finished) {
             __strong typeof(weakSelf) strongSelf = weakSelf;
             if (finished) {
+                [viewController didMoveToParentViewController:self];
                 [currentVC willMoveToParentViewController:nil];
                 [currentVC removeFromParentViewController];
                 strongSelf.currentSection = section;
             }
             else {
+                [viewController willMoveToParentViewController:nil];
                 [viewController removeFromParentViewController];
             }
         };
@@ -88,11 +102,7 @@ static const NSTimeInterval kTransitionAnimationDuration = 0.4;
                                 animations:nil
                                 completion:completionHandler];
     }
-    
-    [viewController didMoveToParentViewController:self];
-    
-    
-    
+//    [viewController didMoveToParentViewController:self];
 }
 
 - (UIViewController *)viewControllerForSection:(RDXMenuSectionType)sectionType {

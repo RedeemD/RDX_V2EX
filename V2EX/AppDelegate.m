@@ -30,6 +30,7 @@
                                                              diskPath:nil];
     [NSURLCache setSharedURLCache:URLCache];
     
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor clearColor];
 #warning window.rootViewController not right
@@ -37,6 +38,7 @@
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:rootVC];
     rootVC.view.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = nav;
+//    nav.preferredStatusBarStyle = UIStatusBarStyleDefault;
     [self.window makeKeyAndVisible];
     
 #warning test

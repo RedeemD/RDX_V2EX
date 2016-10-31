@@ -5,19 +5,23 @@
 //  Created by Redeem_D on 2016/10/18.
 //  Copyright © 2016年 Redeem_D. All rights reserved.
 //
-@class RDXMemberModel;
-@class RDXNodeModel;
 
 #import <Foundation/Foundation.h>
+#import "RDXNodeModel.h"
+#import "RDXMemberModel.h"
 
 @interface RDXTopicModel : NSObject
 
 @property (nonatomic, assign) NSInteger topicID;
 @property (nonatomic, assign) NSInteger replies;
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *url;
-@property (nonatomic, copy) NSString *content;
-@property (nonatomic, copy) NSString *content_rendered;
+@property (nonatomic, assign) NSInteger created;
+@property (nonatomic, assign) NSInteger last_modeified;
+@property (nonatomic, assign) NSInteger last_touched;
+
+@property (nonatomic, copy  ) NSString *title;
+@property (nonatomic, copy  ) NSString *url;
+@property (nonatomic, copy  ) NSString *content;
+@property (nonatomic, copy  ) NSString *content_rendered;
 
 @property (nonatomic, strong) RDXMemberModel *member;
 @property (nonatomic, strong) RDXNodeModel *node;

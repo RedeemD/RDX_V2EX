@@ -7,8 +7,6 @@
 //
 
 #import "RDXTopicModel.h"
-#import "RDXNodeModel.h"
-#import "RDXMemberModel.h"
 #import <YYModel.h>
 
 @interface RDXTopicModel () <YYModel>

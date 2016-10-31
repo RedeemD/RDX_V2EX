@@ -7,8 +7,11 @@
 //
 
 #import "RDXNodeNameLabel.h"
+#import "UIColor+RDXCommon.h"
 
-static const CGFloat kNodeNameLabelFontSize = 14;
+static CGFloat   const kNodeNameLabelFontSize    = 10;
+static NSString *const kBackgroundColorHexString = @"0xf5f5f5";
+static NSString *const kTextColorHexString       = @"0x999999";
 
 @implementation RDXNodeNameLabel
 
@@ -17,16 +20,10 @@ static const CGFloat kNodeNameLabelFontSize = 14;
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        self.font            = [UIFont systemFontOfSize:kNodeNameLabelFontSize];
         // 仿照 V2EX 站内节点颜色
-        self.backgroundColor = [UIColor colorWithRed:245/255.f
-                                               green:245/255.f
-                                                blue:245/255.f
-                                               alpha:1.f];
-        self.textColor       = [UIColor colorWithRed:153/255.f
-                                               green:153/255.f
-                                                blue:153/255.f
-                                               alpha:1.f];
-        self.font = [UIFont systemFontOfSize:kNodeNameLabelFontSize];
+        self.textColor       = [UIColor colorWithHexString:kTextColorHexString];
+        self.backgroundColor = [UIColor colorWithHexString:kBackgroundColorHexString];
 //        self.text = text;
     }
     return self;
