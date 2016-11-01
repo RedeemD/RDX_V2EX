@@ -7,13 +7,17 @@
 //
 
 #import "RDXMemberLabel.h"
+#import "UIColor+RDXCommon.h"
+
+static NSString *const kTextColorHexString = @"0x758088";
 
 @implementation RDXMemberLabel
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        _canRespondGesture = NO;
+        self.font      = [UIFont boldSystemFontOfSize:10];
+        self.textColor = [UIColor colorWithHexString:kTextColorHexString];
     }
     return self;
 }

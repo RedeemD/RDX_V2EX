@@ -15,6 +15,8 @@
 		182596461DC6E5BE00B59B5F /* RDXDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182596451DC6E5BE00B59B5F /* RDXDotView.m */; };
 		182596491DC7357B00B59B5F /* RDXMemberLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 182596481DC7357B00B59B5F /* RDXMemberLabel.m */; };
 		1825964C1DC77CD900B59B5F /* UIView+RDXHierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1825964B1DC77CD900B59B5F /* UIView+RDXHierarchy.m */; };
+		1825964F1DC840FB00B59B5F /* RDXTopicListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1825964E1DC840FB00B59B5F /* RDXTopicListController.m */; };
+		182596521DC8410E00B59B5F /* RDXTopicDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182596511DC8410E00B59B5F /* RDXTopicDetailController.m */; };
 		1825DE631DB73515003045BC /* RDXTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1825DE621DB73515003045BC /* RDXTopicCell.m */; };
 		1825DE691DB75921003045BC /* RDXNodeNameLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1825DE681DB75921003045BC /* RDXNodeNameLabel.m */; };
 		1825DE771DB8956C003045BC /* RDXRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1825DE761DB8956C003045BC /* RDXRootViewController.m */; };
@@ -64,6 +66,10 @@
 		182596481DC7357B00B59B5F /* RDXMemberLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXMemberLabel.m; sourceTree = "<group>"; };
 		1825964A1DC77CD900B59B5F /* UIView+RDXHierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RDXHierarchy.h"; sourceTree = "<group>"; };
 		1825964B1DC77CD900B59B5F /* UIView+RDXHierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RDXHierarchy.m"; sourceTree = "<group>"; };
+		1825964D1DC840FB00B59B5F /* RDXTopicListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXTopicListController.h; sourceTree = "<group>"; };
+		1825964E1DC840FB00B59B5F /* RDXTopicListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXTopicListController.m; sourceTree = "<group>"; };
+		182596501DC8410E00B59B5F /* RDXTopicDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXTopicDetailController.h; sourceTree = "<group>"; };
+		182596511DC8410E00B59B5F /* RDXTopicDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXTopicDetailController.m; sourceTree = "<group>"; };
 		1825DE601DB6FD0C003045BC /* V2EX.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V2EX.pch; sourceTree = "<group>"; };
 		1825DE611DB73515003045BC /* RDXTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXTopicCell.h; sourceTree = "<group>"; };
 		1825DE621DB73515003045BC /* RDXTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXTopicCell.m; sourceTree = "<group>"; };
@@ -360,6 +366,10 @@
 			children = (
 				1827F9CF1DBC5FA4003E8F72 /* RDXLatestViewController.h */,
 				1827F9D01DBC5FA4003E8F72 /* RDXLatestViewController.m */,
+				182596501DC8410E00B59B5F /* RDXTopicDetailController.h */,
+				182596511DC8410E00B59B5F /* RDXTopicDetailController.m */,
+				1825964D1DC840FB00B59B5F /* RDXTopicListController.h */,
+				1825964E1DC840FB00B59B5F /* RDXTopicListController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -623,6 +633,8 @@
 				182596491DC7357B00B59B5F /* RDXMemberLabel.m in Sources */,
 				1827F9DA1DBC9592003E8F72 /* RDXConst.m in Sources */,
 				1825DE7D1DB8C1E7003045BC /* RDXMenuCell.m in Sources */,
+				1825964F1DC840FB00B59B5F /* RDXTopicListController.m in Sources */,
+				182596521DC8410E00B59B5F /* RDXTopicDetailController.m in Sources */,
 				18CA77431DBA5691006545FF /* RDXMenuHeaderView.m in Sources */,
 				184A7D5B1DB5C7A5005CDC7B /* RDXTopicModel.m in Sources */,
 				1825DE7A1DB8B04D003045BC /* RDXMenuView.m in Sources */,

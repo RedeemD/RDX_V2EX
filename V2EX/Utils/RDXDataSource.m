@@ -21,9 +21,6 @@
 @implementation RDXDataSource
 
 - (instancetype)initWithCellIdentifier:(NSString *)cellIdentifier {
-//- (instancetype)initWithItems:(NSArray *)items
-//               cellIdentifier:(NSString *)cellIdentifier
-//              configCellBlock:(TableViewCellConfigBlock)configCellBlock {
     self = [super init];
     if (self) {
         _items = [NSMutableArray array];

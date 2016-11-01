@@ -11,7 +11,8 @@
 
 #import "UIView+RDXGeometry.h"
 
-static const NSTimeInterval kTransitionAnimationDuration = 0.4;
+static NSTimeInterval  kTransitionAnimationDuration = 0.4;
+static NSString *const kTopicCellIdentifier = @"RDXTopicCellIdentifier";
 
 @interface RDXRootViewController ()
 
@@ -76,6 +77,7 @@ static const NSTimeInterval kTransitionAnimationDuration = 0.4;
         [self.view addSubview:viewController.view];
         [viewController didMoveToParentViewController:self];
         self.currentSection = section;
+        self.title = viewController.title;
     }
     else {
         
@@ -87,6 +89,7 @@ static const NSTimeInterval kTransitionAnimationDuration = 0.4;
                 [currentVC willMoveToParentViewController:nil];
                 [currentVC removeFromParentViewController];
                 strongSelf.currentSection = section;
+                strongSelf.title = viewController.title;
             }
             else {
                 [viewController willMoveToParentViewController:nil];

@@ -10,11 +10,14 @@
 #import "RDXDotView.h"
 #import "RDXTimeLabel.h"
 #import "RDXNodeNameLabel.h"
+#import "RDXMemberLabel.h"
 #import "UIColor+RDXCommon.h"
 #import <Masonry.h>
+#import <UIImageView+WebCache.h>
 
 #import "RDXTopicModel.h"
 #import "RDXConfigCellProtocol.h"
+#import "UIView+RDXHierarchy.h"
 
 
 const CGFloat RDXTopicCellHeight = 70;
@@ -26,13 +29,12 @@ static NSString *const kTitleLabelTextColorHexString = @"0x758088";
 
 @interface RDXTopicCell () <RDXConfigCellProtocol>
 
-@property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UILabel *memberLabel;
-@property (nonatomic, strong) UILabel *replyLabel;
-@property (nonatomic, strong) UIImageView  *avatarImageView;
-@property (nonatomic, strong) RDXDotView   *dotView1;
-@property (nonatomic, strong) RDXDotView   *dotView2;
-@property (nonatomic, strong) RDXTimeLabel *timeLabel;
+@property (nonatomic, strong) UILabel          *titleLabel;
+@property (nonatomic, strong) UIImageView      *avatarImageView;
+@property (nonatomic, strong) RDXDotView       *dotView1;
+@property (nonatomic, strong) RDXDotView       *dotView2;
+@property (nonatomic, strong) RDXTimeLabel     *timeLabel;
+@property (nonatomic, strong) RDXMemberLabel   *memberLabel;
 @property (nonatomic, strong) RDXNodeNameLabel *nodeLabel;
 
 @end
@@ -41,12 +43,12 @@ static NSString *const kTitleLabelTextColorHexString = @"0x758088";
 
 #pragma mark - Class Method
 
-+ (void (^)(UITableViewCell *, id))configCellBlock {
-    void (^configCellBlock)(UITableViewCell *,id) = ^(UITableViewCell *cell,id item) {
-        
-    };
-    return configCellBlock;
-}
+//+ (void (^)(UITableViewCell *, id))configCellBlock {
+//    void (^configCellBlock)(UITableViewCell *,id) = ^(UITableViewCell *cell,id item) {
+//
+//    };
+//    return configCellBlock;
+//}
 
 #pragma mark - Initializer
 
@@ -63,7 +65,6 @@ static NSString *const kTitleLabelTextColorHexString = @"0x758088";
     
     _avatarImageView = ({
         UIImageView *avatarImageView        = [[UIImageView alloc] init];
-        avatarImageView.backgroundColor     = [UIColor cyanColor];
         avatarImageView.layer.cornerRadius  = 5;
         avatarImageView.layer.masksToBounds = YES;
         [self addSubview:avatarImageView];
@@ -114,12 +115,12 @@ static NSString *const kTitleLabelTextColorHexString = @"0x758088";
         dotView;
     });
     
-    _timeLabel = ({
-        RDXTimeLabel *label = [[RDXTimeLabel alloc] init];
+    _memberLabel = ({
+        RDXMemberLabel *label = [[RDXMemberLabel alloc] init];
         [self addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.bottom.equalTo(_dotView1);
             make.left.equalTo(_dotView1.mas_right);
-            make.top.bottom.equalTo(_nodeLabel);
         }];
         label;
     });
@@ -129,9 +130,19 @@ static NSString *const kTitleLabelTextColorHexString = @"0x758088";
         [self addSubview:dotView];
         [dotView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.width.equalTo(_dotView1);
-            make.left.equalTo(_timeLabel.mas_right);
+            make.left.equalTo(_memberLabel.mas_right);
         }];
         dotView;
+    });
+    
+    _timeLabel = ({
+        RDXTimeLabel *label = [[RDXTimeLabel alloc] init];
+        [self addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(_dotView2.mas_right);
+            make.top.bottom.equalTo(_nodeLabel);
+        }];
+        label;
     });
 }
 
@@ -139,15 +150,23 @@ static NSString *const kTitleLabelTextColorHexString = @"0x758088";
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+    if (selected) {
+        [self.rdx_viewController.navigationController pushViewController:nil animated:YES];
+    }
 }
 
 #pragma mark - Configure Cell Protocol
 
 - (void)fillDataWithModel:(id)model {
     self.topicModel = model;
-    self.titleLabel.text = self.topicModel.title;
-    self.nodeLabel.text = self.topicModel.node.title;
+    self.nodeLabel.text   = self.topicModel.node.title;
+    self.titleLabel.text  = self.topicModel.title;
+    self.memberLabel.text = self.topicModel.member.username;
     self.timeLabel.timeInterval = self.topicModel.created;
+    
+    NSString *avatarURLString = [NSString stringWithFormat:@"https:%@", self.topicModel.member.avatar_normal];
+    NSURL *avatarURL = [NSURL URLWithString:avatarURLString];
+    [self.avatarImageView sd_setImageWithURL:avatarURL placeholderImage:nil];
 }
 
 @end

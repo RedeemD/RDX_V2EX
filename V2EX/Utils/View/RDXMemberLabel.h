@@ -10,7 +10,7 @@
 
 @interface RDXMemberLabel : UILabel
 
-@property (nonatomic, assign) BOOL canRespondGesture;
+//@property (nonatomic, assign) BOOL canRespondGesture;
 @property (nonatomic, copy  ) void (^respondGesture)();
 
 @end
