@@ -1,5 +1,5 @@
 //
-//  RDXTopicListController.h
+//  RDXTableViewController.h
 //  V2EX
 //
 //  Created by Redeem_D on 2016/10/23.
@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RDXTopicListController.h"
+#import "RDXTableViewController.h"
 
-@interface RDXLatestViewController : RDXTopicListController
+@interface RDXLatestViewController : RDXTableViewController 
 
 @end

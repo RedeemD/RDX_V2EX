@@ -1,5 +1,5 @@
 //
-//  RDXTopicListController.h
+//  RDXTableViewController.h
 //  V2EX
 //
 //  Created by Redeem_D on 2016/11/1.
@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "RDXNetworkManager.h"
 
-@protocol RDXTableViewDataDelegate <NSObject>
+@protocol RDXTableViewDataProtocol <NSObject>
 
 - (void)requestRefreshWithCompletionHandler:(RDXResponseHandler)responseHandler;
 - (void)requestLoadMoreWithCompletionHandler:(RDXResponseHandler)responseHandler;
 
 @end
 
-@interface RDXTopicListController : UITableViewController
+@interface RDXTableViewController : UITableViewController <RDXTableViewDataProtocol>
 
 - (instancetype)initWithCellClassName:(NSString *)cellClassName
                        cellIdentifier:(NSString *)cellIdentifier
@@ -26,4 +26,5 @@
 - (instancetype)initWithStyle:(UITableViewStyle)style NS_UNAVAILABLE;
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil
                          bundle:(NSBundle *)nibBundleOrNil NS_UNAVAILABLE;
+
 @end

@@ -11,7 +11,7 @@
 
 extern const CGFloat RDXTopicCellHeight;
 
-@interface RDXTopicCell : UITableViewCell
+@interface RDXTopicCell : UITableViewCell 
 
 @property (nonatomic, strong) RDXTopicModel *topicModel;
 

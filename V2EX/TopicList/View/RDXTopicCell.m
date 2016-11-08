@@ -11,6 +11,7 @@
 #import "RDXTimeLabel.h"
 #import "RDXNodeNameLabel.h"
 #import "RDXMemberLabel.h"
+#import "RDXTopicDetailController.h"
 #import "UIColor+RDXCommon.h"
 #import <Masonry.h>
 #import <UIImageView+WebCache.h>
@@ -151,7 +152,8 @@ static NSString *const kTitleLabelTextColorHexString = @"0x758088";
 
     // Configure the view for the selected state
     if (selected) {
-        [self.rdx_viewController.navigationController pushViewController:nil animated:YES];
+        RDXTopicDetailController *topicVC = [[RDXTopicDetailController alloc] init];
+        [self.rdx_viewController.navigationController pushViewController:topicVC animated:YES];
     }
 }
 

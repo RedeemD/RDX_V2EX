@@ -1,5 +1,5 @@
 //
-//  RDXTopicListController.m
+//  RDXTableViewController.m
 //  V2EX
 //
 //  Created by Redeem_D on 2016/10/23.
@@ -11,7 +11,7 @@
 //#import "RDXDataSource.h"
 //#import "RDXNetworkManager.h"
 
-static NSString *const kTopicCellIdentifier = @"topicCellIdentifier";
+static NSString *const kTopicCellIdentifier = @"kTopicCellIdentifier";
 
 @interface RDXLatestViewController ()
 
@@ -33,5 +33,9 @@ static NSString *const kTopicCellIdentifier = @"topicCellIdentifier";
     RDXNetworkManager *manager = [RDXNetworkManager sharedManager];
     [manager getLatestTopicListWithCompletionHandler:responseHandler];
 }
+
+//- (void)requestLoadMoreWithCompletionHandler:(RDXResponseHandler)responseHandler {
+//
+//}
 
 @end

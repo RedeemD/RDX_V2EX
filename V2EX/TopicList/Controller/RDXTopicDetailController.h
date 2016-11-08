@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RDXTableViewController.h"
 
-@interface RDXTopicDetailController : UITableViewController
+@interface RDXTopicDetailController : RDXTableViewController
 
 @end

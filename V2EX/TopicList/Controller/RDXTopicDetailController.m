@@ -8,11 +8,23 @@
 
 #import "RDXTopicDetailController.h"
 
+static NSString *const kReplyCellIdentifier = @"kReplyCellIdentifier";
+
 @interface RDXTopicDetailController ()
 
 @end
 
 @implementation RDXTopicDetailController
+
+- (instancetype)init {
+    self = [super initWithCellClassName:@"RDXReplyCell"
+                         cellIdentifier:kReplyCellIdentifier
+                              modelName:@"RDXReplyModel"];
+    if (self) {
+        
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

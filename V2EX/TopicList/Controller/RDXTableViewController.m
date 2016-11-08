@@ -1,16 +1,16 @@
 //
-//  RDXTopicListController.m
+//  RDXTableViewController.m
 //  V2EX
 //
 //  Created by Redeem_D on 2016/11/1.
 //  Copyright © 2016年 Redeem_D. All rights reserved.
 //
 
-#import "RDXTopicListController.h"
+#import "RDXTableViewController.h"
 #import "RDXDataSource.h"
 #import <MJRefresh.h>
 
-@interface RDXTopicListController ()
+@interface RDXTableViewController () 
 
 @property (nonatomic, copy  ) NSString *cellClassName;
 @property (nonatomic, copy  ) NSString *cellIdentifier;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation RDXTopicListController
+@implementation RDXTableViewController
 
 #pragma mark - Initializer
 
@@ -57,7 +57,8 @@
 
 - (void)setupTableView {
     
-    [self.tableView registerClass:NSClassFromString(self.cellClassName)
+    Class cellClass = NSClassFromString(self.cellClassName);
+    [self.tableView registerClass:cellClass
            forCellReuseIdentifier:self.cellIdentifier];
     
     self.tableView.estimatedRowHeight = 70;
@@ -90,14 +91,19 @@
     [self requestRefreshWithCompletionHandler:responseHandler];
 }
 
-- (void)requestRefreshWithCompletionHandler:(RDXResponseHandler)responseHandler {
-//    RDXNetworkManager *manager = [RDXNetworkManager sharedManager];
-//    [manager getLatestTopicListWithCompletionHandler:responseHandler];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - RDXTableView Protocol
+- (void)requestRefreshWithCompletionHandler:(RDXResponseHandler)responseHandler {
+    [NSException raise:NSInternalInconsistencyException
+                format:@"%@ must be overridden in a subclass", NSStringFromSelector(_cmd)];
+}
+- (void)requestLoadMoreWithCompletionHandler:(RDXResponseHandler)responseHandler {
+    [NSException raise:NSInternalInconsistencyException
+                format:@"%@ must be overridden in a subclass", NSStringFromSelector(_cmd)];
 }
 
 #pragma mark - Table View Delegate

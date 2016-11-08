@@ -16,7 +16,7 @@ static NSString *const kTopicCellIdentifier = @"RDXTopicCellIdentifier";
 
 @interface RDXRootViewController ()
 
-@property (nonatomic, strong) RDXLatestViewController *topicListController;
+@property (nonatomic, strong) RDXLatestViewController *latestViewController;
 
 @property (nonatomic, assign) RDXMenuSectionType currentSection;
 
@@ -45,7 +45,7 @@ static NSString *const kTopicCellIdentifier = @"RDXTopicCellIdentifier";
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    _topicListController = ({
+    _latestViewController = ({
         RDXLatestViewController *latestVC = [[RDXLatestViewController alloc] init];
         latestVC.view.backgroundColor = [UIColor orangeColor];
         latestVC;
@@ -114,10 +114,10 @@ static NSString *const kTopicCellIdentifier = @"RDXTopicCellIdentifier";
 //        case RDXMenuSectionTypeNone:
 //            break;
         case RDXMenuSectionTypeLatest:
-            viewController = self.topicListController;
+            viewController = self.latestViewController;
             break;
         case RDXMenuSectionTypeHot:
-            viewController = self.topicListController;
+            viewController = self.latestViewController;
             break;
             
     }
