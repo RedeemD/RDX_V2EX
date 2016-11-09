@@ -7,7 +7,6 @@
 //
 
 #import "RDXMenuHeaderView.h"
-#import <Masonry.h>
 
 @interface RDXMenuHeaderView ()
 

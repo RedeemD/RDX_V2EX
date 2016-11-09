@@ -12,9 +12,6 @@
 #import "RDXNodeNameLabel.h"
 #import "RDXMemberLabel.h"
 #import "RDXTopicDetailController.h"
-#import "UIColor+RDXCommon.h"
-#import <Masonry.h>
-#import <UIImageView+WebCache.h>
 
 #import "RDXTopicModel.h"
 #import "RDXConfigCellProtocol.h"
@@ -68,7 +65,7 @@ static NSString *const kTitleLabelTextColorHexString = @"0x758088";
         UIImageView *avatarImageView        = [[UIImageView alloc] init];
         avatarImageView.layer.cornerRadius  = 5;
         avatarImageView.layer.masksToBounds = YES;
-        [self addSubview:avatarImageView];
+        [self.contentView addSubview:avatarImageView];
         [avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.top.offset(10);
             make.width.height.mas_equalTo(kAvatarImageViewWidth);
@@ -83,7 +80,7 @@ static NSString *const kTitleLabelTextColorHexString = @"0x758088";
         titleLabel.font      = [UIFont systemFontOfSize:kTopicCellTitleFontSize];
         titleLabel.textColor = [UIColor colorWithHexString:@"758088"];
         titleLabel.numberOfLines = 0;
-        [self addSubview:titleLabel];
+        [self.contentView addSubview:titleLabel];
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_avatarImageView.mas_right).offset(10);
             make.right.offset(-10);
@@ -95,7 +92,7 @@ static NSString *const kTitleLabelTextColorHexString = @"0x758088";
     
     _nodeLabel = ({
         RDXNodeNameLabel *label = [[RDXNodeNameLabel alloc] init];
-        [self addSubview:label];
+        [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(_titleLabel.mas_bottom).offset(10);
             make.left.equalTo(_titleLabel);
@@ -107,7 +104,7 @@ static NSString *const kTitleLabelTextColorHexString = @"0x758088";
     
     _dotView1 = ({
         RDXDotView *dotView = [[RDXDotView alloc] init];
-        [self addSubview:dotView];
+        [self.contentView addSubview:dotView];
         [dotView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.equalTo(_nodeLabel);
             make.width.equalTo(dotView.mas_height).multipliedBy(0.75);
@@ -118,7 +115,7 @@ static NSString *const kTitleLabelTextColorHexString = @"0x758088";
     
     _memberLabel = ({
         RDXMemberLabel *label = [[RDXMemberLabel alloc] init];
-        [self addSubview:label];
+        [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.equalTo(_dotView1);
             make.left.equalTo(_dotView1.mas_right);
@@ -128,7 +125,7 @@ static NSString *const kTitleLabelTextColorHexString = @"0x758088";
     
     _dotView2 = ({
         RDXDotView *dotView = [[RDXDotView alloc] init];
-        [self addSubview:dotView];
+        [self.contentView addSubview:dotView];
         [dotView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.width.equalTo(_dotView1);
             make.left.equalTo(_memberLabel.mas_right);
@@ -138,7 +135,7 @@ static NSString *const kTitleLabelTextColorHexString = @"0x758088";
     
     _timeLabel = ({
         RDXTimeLabel *label = [[RDXTimeLabel alloc] init];
-        [self addSubview:label];
+        [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_dotView2.mas_right);
             make.top.bottom.equalTo(_nodeLabel);
@@ -153,22 +150,27 @@ static NSString *const kTitleLabelTextColorHexString = @"0x758088";
     // Configure the view for the selected state
     if (selected) {
         RDXTopicDetailController *topicVC = [[RDXTopicDetailController alloc] init];
-        [self.rdx_viewController.navigationController pushViewController:topicVC animated:YES];
+        topicVC.topicModel = _topicModel;
+        [self.rdx_viewController.navigationController pushViewController:topicVC
+                                                                animated:YES];
     }
 }
 
 #pragma mark - Configure Cell Protocol
 
+//- (void)setTopicModel:(RDXTopicModel *)topicModel {
 - (void)fillDataWithModel:(id)model {
     self.topicModel = model;
-    self.nodeLabel.text   = self.topicModel.node.title;
-    self.titleLabel.text  = self.topicModel.title;
-    self.memberLabel.text = self.topicModel.member.username;
-    self.timeLabel.timeInterval = self.topicModel.created;
+//    _topicModel = topicModel;
+    _nodeLabel.text   = self.topicModel.node.title;
+    _titleLabel.text  = self.topicModel.title;
+    _memberLabel.text = self.topicModel.member.username;
+    _timeLabel.timeInterval = self.topicModel.created;
     
-    NSString *avatarURLString = [NSString stringWithFormat:@"https:%@", self.topicModel.member.avatar_normal];
+    NSString *avatarURLString =
+      [NSString stringWithFormat:@"https:%@", self.topicModel.member.avatar_normal];
     NSURL *avatarURL = [NSURL URLWithString:avatarURLString];
-    [self.avatarImageView sd_setImageWithURL:avatarURL placeholderImage:nil];
+    [_avatarImageView sd_setImageWithURL:avatarURL placeholderImage:nil];
 }
 
 @end

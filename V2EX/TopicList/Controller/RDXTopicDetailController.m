@@ -7,21 +7,29 @@
 //
 
 #import "RDXTopicDetailController.h"
+#import "RDXTopicModel.h"
 
-static NSString *const kReplyCellIdentifier = @"kReplyCellIdentifier";
+static NSString *const kReplyCellIdentifier     = @"kReplyCellIdentifier";
+static NSString *const kTitleTextColorHexString = @"0x000000";
 
 @interface RDXTopicDetailController ()
+
+//@property (nonatomic, strong) UIView *headerView;
+@property (nonatomic, strong) UIView *sectionHeaderView;
 
 @end
 
 @implementation RDXTopicDetailController
 
+#pragma mark - Life Cycle
+
+//- (instancetype)initWithTopicModel:(RDXTopicModel *)topicModel {
 - (instancetype)init {
     self = [super initWithCellClassName:@"RDXReplyCell"
                          cellIdentifier:kReplyCellIdentifier
                               modelName:@"RDXReplyModel"];
     if (self) {
-        
+//        _topicModel = topicModel;
     }
     return self;
 }
@@ -29,11 +37,70 @@ static NSString *const kReplyCellIdentifier = @"kReplyCellIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = _topicModel.title;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [self configureSubviews];
+}
+
+- (void)configureSubviews {
+    
+    [self setupHeaderView];
+    [self setupSectionHeaderView];
+    
+}
+
+- (void)setupHeaderView {
+//    _headerView = ({
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectZero];
+        
+//        headerView;
+//    });
+    self.tableView.tableHeaderView = headerView;
+    [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.tableView);
+    }];
+    
+    UILabel *titleLabel  = [[UILabel alloc] initWithFrame:CGRectZero];
+    titleLabel.text      = _topicModel.title;
+    titleLabel.font      = [UIFont systemFontOfSize:20];
+    titleLabel.textColor = [UIColor colorWithHexString:kTitleTextColorHexString];
+    titleLabel.numberOfLines = 0;
+//    titleLabel.adjustsFontSizeToFitWidth = YES;
+//    titleLabel.minimumScaleFactor        = 0.5;
+//    [titleLabel sizeToFit];
+    [headerView addSubview:titleLabel];
+    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.insets(UIEdgeInsetsMake(10, 10, 10, 10));
+        make.top.left.offset(15);
+        make.right.offset(-10);
+    }];
+    
+    UIImageView *avatarImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    [headerView addSubview:avatarImageView];
+    [avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(titleLabel.mas_bottom).offset(10);
+        make.left.equalTo(titleLabel);
+        make.height.width.mas_equalTo(20);
+        make.bottom.offset(-10);
+    }];
+    
+    NSString *avatarURLString =
+      [NSString stringWithFormat:@"https:%@", self.topicModel.member.avatar_normal];
+    NSURL *avatarURL = [NSURL URLWithString:avatarURLString];
+    [avatarImageView sd_setImageWithURL:avatarURL placeholderImage:nil];
+    
+}
+
+- (void)setupSectionHeaderView {
+    _sectionHeaderView = ({
+        UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
+        view;
+    });
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,21 +108,24 @@ static NSString *const kReplyCellIdentifier = @"kReplyCellIdentifier";
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+#pragma mark - RDXTableView Protocol
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+- (void)requestRefreshWithCompletionHandler:(RDXResponseHandler)responseHandler {
+    RDXNetworkManager *manager = [RDXNetworkManager sharedManager];
+    [manager getLatestTopicListWithCompletionHandler:responseHandler];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+#pragma mark - Table view delegate
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return _sectionHeaderView;
 }
+
+
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:c forIndexPath:indexPath];
     
     // Configure the cell...
     

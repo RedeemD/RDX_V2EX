@@ -7,8 +7,6 @@
 //
 
 #import "RDXDotView.h"
-#import "UIColor+RDXCommon.h"
-#import <Masonry.h>
 
 @interface RDXDotView ()
 

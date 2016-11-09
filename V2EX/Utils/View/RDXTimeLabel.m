@@ -7,7 +7,6 @@
 //
 
 #import "RDXTimeLabel.h"
-#import "UIColor+RDXCommon.h"
 
 static CGFloat const kTimeLabelFontSize = 10;
 

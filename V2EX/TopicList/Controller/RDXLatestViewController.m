@@ -29,6 +29,8 @@ static NSString *const kTopicCellIdentifier = @"kTopicCellIdentifier";
     return self;
 }
 
+#pragma mark - RDXTableView Protocol
+
 - (void)requestRefreshWithCompletionHandler:(RDXResponseHandler)responseHandler {
     RDXNetworkManager *manager = [RDXNetworkManager sharedManager];
     [manager getLatestTopicListWithCompletionHandler:responseHandler];

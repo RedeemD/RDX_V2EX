@@ -10,9 +10,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RDXReplyCell : UIView
+@interface RDXReplyCell : UITableViewCell
 
 @property (nonatomic, strong) RDXReplyModel *model;
-
 
 @end

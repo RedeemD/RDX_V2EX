@@ -8,8 +8,17 @@
 
 #import "RDXReplyCell.h"
 
+#import "RDXConfigCellProtocol.h"
+
+@interface RDXReplyCell () <RDXConfigCellProtocol>
+
+@end
+
 @implementation RDXReplyCell
 
+- (void)fillDataWithModel:(id)model {
+    
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

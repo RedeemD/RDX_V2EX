@@ -7,7 +7,6 @@
 //
 
 #import "RDXNodeNameLabel.h"
-#import "UIColor+RDXCommon.h"
 
 static CGFloat   const kNodeNameLabelFontSize    = 10;
 static NSString *const kBackgroundColorHexString = @"0xf5f5f5";

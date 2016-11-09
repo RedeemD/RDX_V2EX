@@ -65,10 +65,10 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
 
-    __weak typeof(self) weakSelf = self;
+    @weakify(self);
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        __strong typeof(weakSelf) strongSelf = weakSelf;
-        [strongSelf refreshData];
+        @strongify(self);
+        [self refreshData];
     }];
     
     [self.tableView.mj_header beginRefreshing];
@@ -76,16 +76,16 @@
 
 - (void)refreshData {
     
-    __weak typeof(self) weakSelf = self;
+    @weakify(self);
     RDXResponseHandler responseHandler = ^(id responseObject, NSError *error) {
-        __strong typeof(weakSelf) strongSelf = weakSelf;
+        @strongify(self);
         if (!responseObject) {
-            [strongSelf.tableView.mj_header endRefreshing];
+            [self.tableView.mj_header endRefreshing];
             return ;
         }
-        [strongSelf.dataSource refreshItemsNamed:self.modelName fromArray:responseObject];
-        [strongSelf.tableView reloadData];
-        [strongSelf.tableView.mj_header endRefreshing];
+        [self.dataSource refreshItemsNamed:self.modelName fromArray:responseObject];
+        [self.tableView reloadData];
+        [self.tableView.mj_header endRefreshing];
     };
     
     [self requestRefreshWithCompletionHandler:responseHandler];

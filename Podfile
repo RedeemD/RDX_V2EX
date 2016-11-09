@@ -11,6 +11,7 @@ target 'V2EX' do
   pod 'Masonry', '~> 1.0.2'
   pod 'SDWebImage', '~> 4.0.0-beta2'
   pod 'MJRefresh', '~> 3.1.12'
+  pod 'libextobjc', '~> 0.4.1'
 
   target 'V2EXTests' do
     inherit! :search_paths

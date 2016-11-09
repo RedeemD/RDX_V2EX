@@ -81,15 +81,15 @@ static NSString *const kTopicCellIdentifier = @"RDXTopicCellIdentifier";
     }
     else {
         
-        __weak typeof(self) weakSelf = self;
+        @weakify(self);
         void (^completionHandler)(BOOL) = ^(BOOL finished) {
-            __strong typeof(weakSelf) strongSelf = weakSelf;
+            @strongify(self);
             if (finished) {
                 [viewController didMoveToParentViewController:self];
                 [currentVC willMoveToParentViewController:nil];
                 [currentVC removeFromParentViewController];
-                strongSelf.currentSection = section;
-                strongSelf.title = viewController.title;
+                self.currentSection = section;
+                self.title = viewController.title;
             }
             else {
                 [viewController willMoveToParentViewController:nil];

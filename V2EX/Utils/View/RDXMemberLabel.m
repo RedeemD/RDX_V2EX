@@ -7,16 +7,16 @@
 //
 
 #import "RDXMemberLabel.h"
-#import "UIColor+RDXCommon.h"
 
 static NSString *const kTextColorHexString = @"0x758088";
+static CGFloat   const kTextFontSize       = 10;
 
 @implementation RDXMemberLabel
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.font      = [UIFont boldSystemFontOfSize:10];
+        self.font      = [UIFont boldSystemFontOfSize:kTextFontSize];
         self.textColor = [UIColor colorWithHexString:kTextColorHexString];
     }
     return self;

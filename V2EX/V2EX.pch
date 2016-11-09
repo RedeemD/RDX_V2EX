@@ -9,6 +9,14 @@
 #ifndef V2EX_pch
 #define V2EX_pch
 
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <EXTScope.h>
+#import <UIImageView+WebCache.h>
+#import <Masonry.h>
+
+#import "UIColor+RDXCommon.h"
+
 // 日志打印
 #ifdef DEBUG
 
