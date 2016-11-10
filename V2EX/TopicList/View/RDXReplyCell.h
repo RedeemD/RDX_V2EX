@@ -12,6 +12,6 @@
 
 @interface RDXReplyCell : UITableViewCell
 
-@property (nonatomic, strong) RDXReplyModel *model;
+@property (nonatomic, strong) RDXReplyModel *replyModel;
 
 @end

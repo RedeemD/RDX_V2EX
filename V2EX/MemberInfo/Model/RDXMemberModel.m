@@ -19,4 +19,18 @@
     return @{ @"memberID": @"id" };
 }
 
+- (NSDictionary *)modelCustomWillTransformFromDictionary:(NSDictionary *)dic {
+    
+    NSMutableDictionary *resultDic = dic.mutableCopy;
+    
+    NSArray *array = @[ @"mini", @"normal", @"large" ];
+    [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSString *keyPath = [NSString stringWithFormat:@"avatar_%@", obj];
+        NSString *string  = [resultDic[keyPath] substringFromIndex:2];
+//        dic[keyPath] = [dic[keyPath] substringFromIndex:2];
+        resultDic[keyPath] = [NSString stringWithFormat:@"https:%@", string];
+    }];
+    return resultDic;
+}
+
 @end

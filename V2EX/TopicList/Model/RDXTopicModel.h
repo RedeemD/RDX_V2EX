@@ -12,12 +12,12 @@
 
 @interface RDXTopicModel : NSObject
 
-@property (nonatomic, assign) NSInteger topicID;
 @property (nonatomic, assign) NSInteger replies;
 @property (nonatomic, assign) NSInteger created;
 @property (nonatomic, assign) NSInteger last_modeified;
 @property (nonatomic, assign) NSInteger last_touched;
 
+@property (nonatomic, copy  ) NSString *topicID;
 @property (nonatomic, copy  ) NSString *title;
 @property (nonatomic, copy  ) NSString *url;
 @property (nonatomic, copy  ) NSString *content;

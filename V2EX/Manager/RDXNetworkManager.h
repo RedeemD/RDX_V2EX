@@ -33,5 +33,8 @@ typedef void (^RDXResponseHandler)(id responseObject, NSError *error);
                             page:(NSInteger)page
                completionHandler:(RDXResponseHandler)handler;
 
+- (void)getReplyListWithTopicID:(NSString *)topicID
+              completionHandler:(RDXResponseHandler)handler;
+
 
 @end

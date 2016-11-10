@@ -11,11 +11,11 @@
 
 @interface RDXReplyModel : NSObject
 
-@property (nonatomic, assign) NSInteger replyID;
 @property (nonatomic, assign) NSInteger thanks;
 @property (nonatomic, assign) NSInteger created;
 @property (nonatomic, assign) NSInteger last_modified;
 
+@property (nonatomic, copy  ) NSString *replyID;
 @property (nonatomic, copy  ) NSString *content;
 @property (nonatomic, copy  ) NSString *content_rendered;
 

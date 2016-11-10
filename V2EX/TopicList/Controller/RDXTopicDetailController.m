@@ -8,6 +8,8 @@
 
 #import "RDXTopicDetailController.h"
 #import "RDXTopicModel.h"
+#import "RDXTimeLabel.h"
+#import "RDXMemberLabel.h"
 
 static NSString *const kReplyCellIdentifier     = @"kReplyCellIdentifier";
 static NSString *const kTitleTextColorHexString = @"0x000000";
@@ -88,12 +90,24 @@ static NSString *const kTitleTextColorHexString = @"0x000000";
         make.height.width.mas_equalTo(20);
         make.bottom.offset(-10);
     }];
+    [avatarImageView sd_setImageWithURL:_topicModel.member.avatar_mini
+                       placeholderImage:nil];
     
-    NSString *avatarURLString =
-      [NSString stringWithFormat:@"https:%@", self.topicModel.member.avatar_normal];
-    NSURL *avatarURL = [NSURL URLWithString:avatarURLString];
-    [avatarImageView sd_setImageWithURL:avatarURL placeholderImage:nil];
+    RDXMemberLabel *memberLabel = [[RDXMemberLabel alloc] init];
+    memberLabel.text = _topicModel.member.username;
+    [headerView addSubview:memberLabel];
+    [memberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(avatarImageView.mas_right).offset(5);
+        make.top.bottom.equalTo(avatarImageView);
+    }];
     
+    RDXTimeLabel *timeLabel = [[RDXTimeLabel alloc] init];//WithFrame:CGRectZero];
+    timeLabel.timeInterval = _topicModel.created;
+    [headerView addSubview:timeLabel];
+    [timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.equalTo(memberLabel);
+        make.right.offset(-10);
+    }];
 }
 
 - (void)setupSectionHeaderView {
@@ -112,7 +126,9 @@ static NSString *const kTitleTextColorHexString = @"0x000000";
 
 - (void)requestRefreshWithCompletionHandler:(RDXResponseHandler)responseHandler {
     RDXNetworkManager *manager = [RDXNetworkManager sharedManager];
-    [manager getLatestTopicListWithCompletionHandler:responseHandler];
+    [manager getReplyListWithTopicID:_topicModel.topicID
+                   completionHandler:responseHandler];
+//    [manager getLatestTopicListWithCompletionHandler:responseHandler];
 }
 
 #pragma mark - Table view delegate

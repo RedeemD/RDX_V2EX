@@ -69,7 +69,7 @@ static NSString *const kTitleLabelTextColorHexString = @"0x758088";
         [avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.top.offset(10);
             make.width.height.mas_equalTo(kAvatarImageViewWidth);
-//            make.bottom.offset(-10);
+            make.bottom.lessThanOrEqualTo(self.contentView).offset(-10);
 //            make.width.equalTo(avatarImageView.mas_height);
         }];
         avatarImageView;
@@ -78,13 +78,13 @@ static NSString *const kTitleLabelTextColorHexString = @"0x758088";
     _titleLabel = ({
         UILabel *titleLabel  = [[UILabel alloc] init];
         titleLabel.font      = [UIFont systemFontOfSize:kTopicCellTitleFontSize];
-        titleLabel.textColor = [UIColor colorWithHexString:@"758088"];
+        titleLabel.textColor = [UIColor colorWithHexString:kTitleLabelTextColorHexString];
         titleLabel.numberOfLines = 0;
         [self.contentView addSubview:titleLabel];
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.offset(10);
             make.left.equalTo(_avatarImageView.mas_right).offset(10);
             make.right.offset(-10);
-            make.top.offset(10);
 //            make.bottom.equalTo(_nodeLabel.mas_top).offset(-10);
         }];
         titleLabel;
@@ -148,12 +148,13 @@ static NSString *const kTitleLabelTextColorHexString = @"0x758088";
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
-    if (selected) {
+    if (self.isSelected) {
         RDXTopicDetailController *topicVC = [[RDXTopicDetailController alloc] init];
         topicVC.topicModel = _topicModel;
         [self.rdx_viewController.navigationController pushViewController:topicVC
                                                                 animated:YES];
     }
+//    RDXLog(@"%d----%s", self.isSelected, __FUNCTION__);
 }
 
 #pragma mark - Configure Cell Protocol
@@ -167,10 +168,13 @@ static NSString *const kTitleLabelTextColorHexString = @"0x758088";
     _memberLabel.text = self.topicModel.member.username;
     _timeLabel.timeInterval = self.topicModel.created;
     
-    NSString *avatarURLString =
-      [NSString stringWithFormat:@"https:%@", self.topicModel.member.avatar_normal];
-    NSURL *avatarURL = [NSURL URLWithString:avatarURLString];
-    [_avatarImageView sd_setImageWithURL:avatarURL placeholderImage:nil];
+//    NSString *avatarURLString =
+//      [NSString stringWithFormat:@"https:%@", self.topicModel.member.avatar_normal];
+//    NSURL *avatarURL = [NSURL URLWithString:avatarURLString];
+//    NSURL *avatarURL = [NSURL URLWithString:_topicModel.member.avatar_normal];
+//    [_avatarImageView sd_setImageWithURL:avatarURL placeholderImage:nil];
+    [_avatarImageView sd_setImageWithURL:_topicModel.member.avatar_normal
+                        placeholderImage:nil];
 }
 
 @end

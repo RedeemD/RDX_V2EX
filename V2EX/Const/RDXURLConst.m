@@ -14,6 +14,8 @@ NSString *const RDXTopicListURL = @"/api/topics/show.json";
 
 NSString *const RDXLatestTopicsURL = @"/api/topics/latest.json";
 
+NSString *const RDXReplyListURL = @"/api/replies/show.json";
+
 @implementation RDXURLConst
 
 @end

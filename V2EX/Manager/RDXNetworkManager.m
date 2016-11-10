@@ -40,31 +40,55 @@
 
 #pragma mark - GET
 
+- (void)getRequestWithURLString:(NSString *)URLString
+                     parameters:(NSDictionary *)params
+              completionHandler:(RDXResponseHandler)handler {
+    [_manager GET:URLString
+       parameters:params
+         progress:nil
+          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+              handler(responseObject, nil);
+          }
+          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+              handler(nil, error);
+          }];
+}
+
+- (void)getTopicListWithFixedURLString:(NSString *)URLString
+                     completionHandler:(RDXResponseHandler)handler {
+    [self getRequestWithURLString:URLString
+                       parameters:nil
+                completionHandler:handler];
+//    [_manager GET:URLString
+//       parameters:nil
+//         progress:nil
+//          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//              handler(responseObject, nil);
+//          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//              handler(nil, error);
+//          }];
+}
 - (void)getLatestTopicListWithCompletionHandler:(RDXResponseHandler)handler {
-    [self.manager GET:RDXLatestTopicsURL
-           parameters:nil progress:nil
-              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                  handler(responseObject, nil);
-              }
-              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                  handler(nil, error);
-              }];
+    [self getTopicListWithFixedURLString:RDXLatestTopicsURL
+                       completionHandler:handler];
 }
 
 - (void)getTopicListWithParameters:(NSDictionary *)params
                  completionHandler:(RDXResponseHandler)handler {
     RDXLog(@"%@", params);
-    [self.manager GET:RDXTopicListURL
-           parameters:params
-             progress:nil
-              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                  handler(responseObject, nil);
-              }
-              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                  handler(nil, error);
-              }];
+    [self getRequestWithURLString:RDXTopicListURL
+                       parameters:params
+                completionHandler:handler];
+//    [self.manager GET:RDXTopicListURL
+//           parameters:params
+//             progress:nil
+//              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//                  handler(responseObject, nil);
+//              }
+//              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//                  handler(nil, error);
+//              }];
 }
-
 - (void)getTopicDetailWithTopicID:(NSString *)topicID
                 completionHandler:(RDXResponseHandler)handler {
     NSDictionary *param = @{ @"id": topicID };
@@ -90,7 +114,12 @@
     [self getTopicListWithParameters:params completionHandler:handler];
 }
 
-
-//- (void)
+- (void)getReplyListWithTopicID:(NSString *)topicID
+              completionHandler:(RDXResponseHandler)handler {
+    NSDictionary *params = @{ @"topic_id": topicID };
+    [self getRequestWithURLString:RDXReplyListURL
+                       parameters:params
+                completionHandler:handler];
+}
 
 @end

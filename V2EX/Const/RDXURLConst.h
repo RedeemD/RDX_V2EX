@@ -16,6 +16,9 @@ extern NSString *const RDXTopicListURL;
 // 最新主题
 extern NSString *const RDXLatestTopicsURL;
 
+// 主题回复
+extern NSString *const RDXReplyListURL;
+
 @interface RDXURLConst : NSObject
 
 @end

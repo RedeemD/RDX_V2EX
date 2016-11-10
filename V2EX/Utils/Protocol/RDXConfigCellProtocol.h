@@ -11,6 +11,7 @@
 
 @protocol RDXConfigCellProtocol <NSObject>
 
+// 给 cell 填充数据定义统一接口，便于抽象 dataSource 的代理方法实现
 - (void)fillDataWithModel:(id)model;
 
 @end

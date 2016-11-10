@@ -81,6 +81,7 @@
         @strongify(self);
         if (!responseObject) {
             [self.tableView.mj_header endRefreshing];
+            RDXLog(@"%@", error.localizedDescription);
             return ;
         }
         [self.dataSource refreshItemsNamed:self.modelName fromArray:responseObject];
@@ -108,11 +109,11 @@
 
 #pragma mark - Table View Delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [self.dataSource tableView:self.tableView cellForRowAtIndexPath:indexPath];
-    cell.selected = YES;
-    RDXLog(@"%ld------%d", indexPath.row, cell.isSelected);
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    UITableViewCell *cell = [self.dataSource tableView:self.tableView cellForRowAtIndexPath:indexPath];
+////    cell.selected = YES;
+//    RDXLog(@"%ld------%d----%s", indexPath.row, cell.isSelected, __func__);
+//}
 
 /*
 // Override to support conditional editing of the table view.

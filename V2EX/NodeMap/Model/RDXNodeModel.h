@@ -10,19 +10,19 @@
 
 @interface RDXNodeModel : NSObject
 
-@property (nonatomic, assign) NSInteger nodeID;
 @property (nonatomic, assign) NSInteger topics;
 @property (nonatomic, assign) NSInteger stars;
-@property (nonatomic, assign) NSInteger *created;              // created time (seconds)
-@property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *url;
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *title_alternative;
-@property (nonatomic, copy) NSString *header;               // node introduction
-@property (nonatomic, copy) NSString *footer;
-@property (nonatomic, copy) NSString *avatar_mini;
-@property (nonatomic, copy) NSString *avatar_normal;
-@property (nonatomic, copy) NSString *avatar_large;
+@property (nonatomic, assign) NSInteger created;              // created time (seconds)
+@property (nonatomic, copy  ) NSString *nodeID;
+@property (nonatomic, copy  ) NSString *name;
+@property (nonatomic, copy  ) NSString *url;
+@property (nonatomic, copy  ) NSString *title;
+@property (nonatomic, copy  ) NSString *title_alternative;
+@property (nonatomic, copy  ) NSString *header;               // node introduction
+@property (nonatomic, copy  ) NSString *footer;
+@property (nonatomic, copy  ) NSString *avatar_mini;
+@property (nonatomic, copy  ) NSString *avatar_normal;
+@property (nonatomic, copy  ) NSString *avatar_large;
 
 //{
 //    "status" : "error",
