@@ -30,7 +30,7 @@ static NSString *const kTopicCellIdentifier = @"RDXTopicCellIdentifier";
     [super viewDidLoad];
     
     [self configureViewControllers];
-    
+    [self setupNavigationItem];
     [self showSection:RDXMenuSectionTypeLatest animated:NO];
 }
 
@@ -47,14 +47,25 @@ static NSString *const kTopicCellIdentifier = @"RDXTopicCellIdentifier";
     
     _latestViewController = ({
         RDXLatestViewController *latestVC = [[RDXLatestViewController alloc] init];
-        latestVC.view.backgroundColor = [UIColor orangeColor];
+//        latestVC.view.backgroundColor = [UIColor orangeColor];
         latestVC;
     });
+}
+
+- (void)setupNavigationItem {
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
+    [button addTarget:self
+               action:@selector(prefersStatusBarHidden)
+     forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.leftBarButtonItem = item;
 }
 
 - (BOOL)prefersStatusBarHidden {
     return NO;
 }
+
 #pragma mark - Section Transition
 
 - (void)showSection:(RDXMenuSectionType)section animated:(BOOL)animated {

@@ -142,6 +142,7 @@ static NSString *const kTitleLabelTextColorHexString = @"0x758088";
         }];
         label;
     });
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -154,13 +155,15 @@ static NSString *const kTitleLabelTextColorHexString = @"0x758088";
         [self.rdx_viewController.navigationController pushViewController:topicVC
                                                                 animated:YES];
     }
-//    RDXLog(@"%d----%s", self.isSelected, __FUNCTION__);
 }
 
 #pragma mark - Configure Cell Protocol
 
 //- (void)setTopicModel:(RDXTopicModel *)topicModel {
 - (void)fillDataWithModel:(id)model {
+    if (self.topicModel == model) {
+        return;
+    }
     self.topicModel = model;
 //    _topicModel = topicModel;
     _nodeLabel.text   = self.topicModel.node.title;

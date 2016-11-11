@@ -7,6 +7,7 @@
 //
 
 #import "RDXTopicDetailController.h"
+#import "RDXTopicTitleView.h"
 #import "RDXTopicModel.h"
 #import "RDXTimeLabel.h"
 #import "RDXMemberLabel.h"
@@ -40,6 +41,8 @@ static NSString *const kTitleTextColorHexString = @"0x000000";
     [super viewDidLoad];
     
     self.title = _topicModel.title;
+//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -50,63 +53,17 @@ static NSString *const kTitleTextColorHexString = @"0x000000";
 }
 
 - (void)configureSubviews {
-    
     [self setupHeaderView];
     [self setupSectionHeaderView];
-    
+    [self setupNavigationItem];
 }
 
 - (void)setupHeaderView {
-//    _headerView = ({
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectZero];
-        
-//        headerView;
-//    });
+    RDXTopicTitleView *headerView = [[RDXTopicTitleView alloc] init];
+    headerView.topicModel = _topicModel;
     self.tableView.tableHeaderView = headerView;
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.tableView);
-    }];
-    
-    UILabel *titleLabel  = [[UILabel alloc] initWithFrame:CGRectZero];
-    titleLabel.text      = _topicModel.title;
-    titleLabel.font      = [UIFont systemFontOfSize:20];
-    titleLabel.textColor = [UIColor colorWithHexString:kTitleTextColorHexString];
-    titleLabel.numberOfLines = 0;
-//    titleLabel.adjustsFontSizeToFitWidth = YES;
-//    titleLabel.minimumScaleFactor        = 0.5;
-//    [titleLabel sizeToFit];
-    [headerView addSubview:titleLabel];
-    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.insets(UIEdgeInsetsMake(10, 10, 10, 10));
-        make.top.left.offset(15);
-        make.right.offset(-10);
-    }];
-    
-    UIImageView *avatarImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-    [headerView addSubview:avatarImageView];
-    [avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(titleLabel.mas_bottom).offset(10);
-        make.left.equalTo(titleLabel);
-        make.height.width.mas_equalTo(20);
-        make.bottom.offset(-10);
-    }];
-    [avatarImageView sd_setImageWithURL:_topicModel.member.avatar_mini
-                       placeholderImage:nil];
-    
-    RDXMemberLabel *memberLabel = [[RDXMemberLabel alloc] init];
-    memberLabel.text = _topicModel.member.username;
-    [headerView addSubview:memberLabel];
-    [memberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(avatarImageView.mas_right).offset(5);
-        make.top.bottom.equalTo(avatarImageView);
-    }];
-    
-    RDXTimeLabel *timeLabel = [[RDXTimeLabel alloc] init];//WithFrame:CGRectZero];
-    timeLabel.timeInterval = _topicModel.created;
-    [headerView addSubview:timeLabel];
-    [timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.equalTo(memberLabel);
-        make.right.offset(-10);
     }];
 }
 
@@ -115,6 +72,20 @@ static NSString *const kTitleTextColorHexString = @"0x000000";
         UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
         view;
     });
+}
+
+- (void)setupNavigationItem {
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
+    self.navigationItem.rightBarButtonItem =
+      [[UIBarButtonItem alloc] initWithCustomView:view];
+    
+    UILabel *label = [[UILabel alloc] init];
+    label.text     = self.title;
+    label.minimumScaleFactor        = 0.8;
+    label.adjustsFontSizeToFitWidth = YES;
+    [label sizeToFit];
+    self.navigationItem.titleView   = label;
 }
 
 - (void)didReceiveMemoryWarning {
