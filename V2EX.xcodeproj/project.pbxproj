@@ -34,6 +34,8 @@
 		184A7D551DB5C76B005CDC7B /* RDXMemberModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A7D541DB5C76B005CDC7B /* RDXMemberModel.m */; };
 		184A7D581DB5C796005CDC7B /* RDXNodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A7D571DB5C796005CDC7B /* RDXNodeModel.m */; };
 		184A7D5B1DB5C7A5005CDC7B /* RDXTopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A7D5A1DB5C7A5005CDC7B /* RDXTopicModel.m */; };
+		18992E811DD98C3900DE0233 /* RDXTopicContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18992E801DD98C3900DE0233 /* RDXTopicContentView.m */; };
+		18992E841DD99E9A00DE0233 /* RDXHotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18992E831DD99E9A00DE0233 /* RDXHotViewController.m */; };
 		18CA77401DBA3CFA006545FF /* RDXDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CA773F1DBA3CFA006545FF /* RDXDataSource.m */; };
 		18CA77431DBA5691006545FF /* RDXMenuHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CA77421DBA5691006545FF /* RDXMenuHeaderView.m */; };
 		18F041B71DD5E67C00408C1A /* RDXTopicTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F041B61DD5E67C00408C1A /* RDXTopicTitleView.m */; };
@@ -109,6 +111,10 @@
 		184A7D571DB5C796005CDC7B /* RDXNodeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXNodeModel.m; sourceTree = "<group>"; };
 		184A7D591DB5C7A5005CDC7B /* RDXTopicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXTopicModel.h; sourceTree = "<group>"; };
 		184A7D5A1DB5C7A5005CDC7B /* RDXTopicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXTopicModel.m; sourceTree = "<group>"; };
+		18992E7F1DD98C3900DE0233 /* RDXTopicContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXTopicContentView.h; sourceTree = "<group>"; };
+		18992E801DD98C3900DE0233 /* RDXTopicContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXTopicContentView.m; sourceTree = "<group>"; };
+		18992E821DD99E9A00DE0233 /* RDXHotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXHotViewController.h; sourceTree = "<group>"; };
+		18992E831DD99E9A00DE0233 /* RDXHotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXHotViewController.m; sourceTree = "<group>"; };
 		18CA773E1DBA3CFA006545FF /* RDXDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXDataSource.h; sourceTree = "<group>"; };
 		18CA773F1DBA3CFA006545FF /* RDXDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDXDataSource.m; sourceTree = "<group>"; };
 		18CA77411DBA5691006545FF /* RDXMenuHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDXMenuHeaderView.h; sourceTree = "<group>"; };
@@ -375,6 +381,8 @@
 			children = (
 				1827F9CF1DBC5FA4003E8F72 /* RDXLatestViewController.h */,
 				1827F9D01DBC5FA4003E8F72 /* RDXLatestViewController.m */,
+				18992E821DD99E9A00DE0233 /* RDXHotViewController.h */,
+				18992E831DD99E9A00DE0233 /* RDXHotViewController.m */,
 				182596501DC8410E00B59B5F /* RDXTopicDetailController.h */,
 				182596511DC8410E00B59B5F /* RDXTopicDetailController.m */,
 				1825964D1DC840FB00B59B5F /* RDXTableViewController.h */,
@@ -403,6 +411,8 @@
 				18415EFE1DD20BD2001C1CC3 /* RDXReplyCell.m */,
 				18F041B51DD5E67C00408C1A /* RDXTopicTitleView.h */,
 				18F041B61DD5E67C00408C1A /* RDXTopicTitleView.m */,
+				18992E7F1DD98C3900DE0233 /* RDXTopicContentView.h */,
+				18992E801DD98C3900DE0233 /* RDXTopicContentView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -635,6 +645,7 @@
 				1827F9E61DBF3CD8003E8F72 /* UIView+RDXGeometry.m in Sources */,
 				184A7D581DB5C796005CDC7B /* RDXNodeModel.m in Sources */,
 				184A7D551DB5C76B005CDC7B /* RDXMemberModel.m in Sources */,
+				18992E811DD98C3900DE0233 /* RDXTopicContentView.m in Sources */,
 				182596461DC6E5BE00B59B5F /* RDXDotView.m in Sources */,
 				1827F9D11DBC5FA4003E8F72 /* RDXLatestViewController.m in Sources */,
 				1827F9E91DBF8E96003E8F72 /* RDXTimeLabel.m in Sources */,
@@ -651,6 +662,7 @@
 				1825DE7D1DB8C1E7003045BC /* RDXMenuCell.m in Sources */,
 				1825964F1DC840FB00B59B5F /* RDXTableViewController.m in Sources */,
 				18415EFF1DD20BD2001C1CC3 /* RDXReplyCell.m in Sources */,
+				18992E841DD99E9A00DE0233 /* RDXHotViewController.m in Sources */,
 				182596521DC8410E00B59B5F /* RDXTopicDetailController.m in Sources */,
 				18CA77431DBA5691006545FF /* RDXMenuHeaderView.m in Sources */,
 				184A7D5B1DB5C7A5005CDC7B /* RDXTopicModel.m in Sources */,

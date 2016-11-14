@@ -11,7 +11,6 @@
 //#import "RDXDataSource.h"
 //#import "RDXNetworkManager.h"
 
-static NSString *const kTopicCellIdentifier = @"kTopicCellIdentifier";
 
 @interface RDXLatestViewController ()
 
@@ -21,7 +20,7 @@ static NSString *const kTopicCellIdentifier = @"kTopicCellIdentifier";
 
 - (instancetype)init {
     self = [super initWithCellClassName:@"RDXTopicCell"
-                         cellIdentifier:kTopicCellIdentifier
+                         cellIdentifier:RDXTopicCellIdentifier
                               modelName:@"RDXTopicModel"];
     if (self) {
         self.title = @"最新";

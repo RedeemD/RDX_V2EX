@@ -21,10 +21,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        
         NSURL *baseURL = [NSURL URLWithString:RDXHTTPSBaseURL];
         _manager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
-        
     }
     return self;
 }
@@ -59,17 +57,13 @@
     [self getRequestWithURLString:URLString
                        parameters:nil
                 completionHandler:handler];
-//    [_manager GET:URLString
-//       parameters:nil
-//         progress:nil
-//          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//              handler(responseObject, nil);
-//          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//              handler(nil, error);
-//          }];
 }
 - (void)getLatestTopicListWithCompletionHandler:(RDXResponseHandler)handler {
     [self getTopicListWithFixedURLString:RDXLatestTopicsURL
+                       completionHandler:handler];
+}
+- (void)getHotTopicListWihCompletionHandler:(RDXResponseHandler)handler {
+    [self getTopicListWithFixedURLString:RDXHotTopicsURL
                        completionHandler:handler];
 }
 

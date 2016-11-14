@@ -8,9 +8,10 @@
 
 #import "RDXTopicDetailController.h"
 #import "RDXTopicTitleView.h"
-#import "RDXTopicModel.h"
+#import "RDXTopicContentView.h"
 #import "RDXTimeLabel.h"
 #import "RDXMemberLabel.h"
+#import "RDXTopicModel.h"
 
 static NSString *const kReplyCellIdentifier     = @"kReplyCellIdentifier";
 static NSString *const kTitleTextColorHexString = @"0x000000";
@@ -69,9 +70,14 @@ static NSString *const kTitleTextColorHexString = @"0x000000";
 
 - (void)setupSectionHeaderView {
     _sectionHeaderView = ({
-        UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
+        RDXTopicContentView *view = [[RDXTopicContentView alloc] init];
+        view.content = _topicModel.content;
+//        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.right.equalTo(self.tableView.tableHeaderView);
+//        }];
         view;
     });
+    self.tableView.estimatedSectionHeaderHeight = 200;
 }
 
 - (void)setupNavigationItem {

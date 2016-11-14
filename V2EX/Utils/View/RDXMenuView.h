@@ -10,4 +10,6 @@
 
 @interface RDXMenuView : UIView
 
+@property (nonatomic, copy) void (^cellDidSelectedHandler)(NSInteger index);
+
 @end

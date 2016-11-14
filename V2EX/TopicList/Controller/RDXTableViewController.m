@@ -63,7 +63,7 @@
     
     self.tableView.estimatedRowHeight = 70;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    
+    self.tableView.tableFooterView = [[UIView alloc] init];
 
     @weakify(self);
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{

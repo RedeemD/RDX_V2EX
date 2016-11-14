@@ -8,6 +8,4 @@
 
 #import "RDXConst.h"
 
-@implementation RDXConst
-
-@end
+NSString *const RDXTopicCellIdentifier = @"RDXTopicCellIdentifier";

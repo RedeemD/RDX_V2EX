@@ -35,12 +35,13 @@ static NSString *const kTitleTextColorHexString = @"0x000000";
     
     _titleLabel = ({
         UILabel *titleLabel  = [[UILabel alloc] initWithFrame:CGRectZero];
-        titleLabel.font      = [UIFont systemFontOfSize:20];
+        titleLabel.font      = [UIFont boldSystemFontOfSize:18];
         titleLabel.textColor = [UIColor colorWithHexString:kTitleTextColorHexString];
         titleLabel.numberOfLines = 0;
         [self addSubview:titleLabel];
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.offset(15);
+            make.top.offset(10);
+            make.left.offset(15);
             make.right.offset(-10);
         }];
         titleLabel;

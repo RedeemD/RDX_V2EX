@@ -18,6 +18,8 @@ typedef void (^RDXResponseHandler)(id responseObject, NSError *error);
 
 - (void)getLatestTopicListWithCompletionHandler:(RDXResponseHandler)handler;
 
+- (void)getHotTopicListWihCompletionHandler:(RDXResponseHandler)handler;
+
 - (void)getTopicDetailWithTopicID:(NSString *)topicID
                 completionHandler:(RDXResponseHandler)handler;
 

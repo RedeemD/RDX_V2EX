@@ -37,18 +37,19 @@ static const CGFloat kMenuSectionCellHeight = 50;
     
     RDXMenuHeaderView *headerView =
       [[RDXMenuHeaderView alloc] initWithFrame:CGRectMake(0, 0, 200, 110)];
-//    [headerView sd_]
-    
     
     _tableView = ({
-        UITableView *tableView =
-          [[UITableView alloc] initWithFrame:self.bounds style:UITableViewStylePlain];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero
+                                                              style:UITableViewStylePlain];
         tableView.delegate   = self;
         tableView.dataSource = self;
         tableView.rowHeight  = kMenuSectionCellHeight;
         tableView.tableHeaderView = headerView;
         tableView.separatorStyle  = UITableViewCellSeparatorStyleNone;
         [self addSubview:tableView];
+        [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.insets(UIEdgeInsetsZero);
+        }];
         tableView;
     });
 }
@@ -70,7 +71,11 @@ static const CGFloat kMenuSectionCellHeight = 50;
 
 #pragma mark - Table view Delegate
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_cellDidSelectedHandler) {
+        _cellDidSelectedHandler(indexPath.row + 1);
+    }
+}
 
 #pragma mark - table view Data Source
 
