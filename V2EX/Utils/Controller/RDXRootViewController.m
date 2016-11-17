@@ -9,6 +9,7 @@
 #import "RDXRootViewController.h"
 #import "RDXLatestViewController.h"
 #import "RDXHotViewController.h"
+#import "RDXSettingController.h"
 #import "RDXMenuView.h"
 
 #import "UIView+RDXGeometry.h"
@@ -18,9 +19,10 @@ static NSString *const kTopicCellIdentifier = @"RDXTopicCellIdentifier";
 
 @interface RDXRootViewController ()
 
+@property (nonatomic, strong) UIViewController        *currentViewController;
 @property (nonatomic, strong) RDXLatestViewController *latestViewController;
 @property (nonatomic, strong) RDXHotViewController    *hotViewController;
-@property (nonatomic, strong) UIViewController        *currentViewController;
+@property (nonatomic, strong) RDXSettingController    *settingViewController;
 
 @property (nonatomic, strong) UIView      *blurView;
 @property (nonatomic, strong) RDXMenuView *menuView;
@@ -65,6 +67,12 @@ static NSString *const kTopicCellIdentifier = @"RDXTopicCellIdentifier";
         RDXHotViewController *hotVC = [[RDXHotViewController alloc] init];
         hotVC;
     });
+    
+    _settingViewController = ({
+        RDXSettingController *settingVC = [[RDXSettingController alloc] init];
+        settingVC;
+    });
+    
 }
 
 - (void)setupNavigationItem {
@@ -169,15 +177,24 @@ static NSString *const kTopicCellIdentifier = @"RDXTopicCellIdentifier";
 - (UIViewController *)viewControllerForSection:(RDXMenuSectionType)sectionType {
     UIViewController *viewController;
     switch (sectionType) {
-//        case RDXMenuSectionTypeNone:
-//            break;
         case RDXMenuSectionTypeLatest:
             viewController = _latestViewController;
             break;
         case RDXMenuSectionTypeHot:
             viewController = _hotViewController;
             break;
-            
+        case RDXMenuSectionTypeNode:
+            viewController = _hotViewController;
+            break;
+        case RDXMenuSectionTypeFavor:
+            viewController = _hotViewController;
+            break;
+        case RDXMenuSectionTypeProfile:
+            viewController = _hotViewController;
+            break;
+        case RDXMenuSectionTypeSetting:
+            viewController = _settingViewController;
+            break;
     }
     return viewController;
 }
@@ -205,9 +222,6 @@ static NSString *const kTopicCellIdentifier = @"RDXTopicCellIdentifier";
         [app.keyWindow addSubview:_menuView];
         [_menuView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.offset(0);
-            // _temp =
-//            make.left.offset(-250);
-//            make.width.mas_equalTo(250);
             make.left.offset(- _menuViewWidth);
             make.width.mas_equalTo(_menuViewWidth);
         }];
@@ -231,9 +245,6 @@ static NSString *const kTopicCellIdentifier = @"RDXTopicCellIdentifier";
                      completion:^(BOOL finished) {
                          _isMenuViewShown = YES;
                      }];
-//    _currentViewController.view.userInteractionEnabled = NO;
-//    [self.view bringSubviewToFront:_menuView];
-//    [self.view setNeedsLayout];
 }
 
 - (void)hideMenuView {

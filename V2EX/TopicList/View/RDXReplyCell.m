@@ -86,11 +86,6 @@ static CGFloat const kAvatarImageViewWidth   = 48;
         label;
     });
     
-//    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-////        make.bottom.greaterThanOrEqualTo(_avatarImageView).offset(10);
-//        make.edges.equalTo(self);
-////        make.width.equalTo(self);
-//    }];
     [self setNeedsLayout];
 }
 

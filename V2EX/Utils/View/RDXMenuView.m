@@ -34,7 +34,6 @@ static const CGFloat kMenuSectionCellHeight = 50;
 
 - (void)customUI {
     
-    
     RDXMenuHeaderView *headerView =
       [[RDXMenuHeaderView alloc] initWithFrame:CGRectMake(0, 0, 200, 110)];
     
