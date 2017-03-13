@@ -29,8 +29,7 @@
                                                          diskCapacity:10 * 1024 *1024
                                                              diskPath:nil];
     [NSURLCache setSharedURLCache:URLCache];
-    
-    
+
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor clearColor];
 #warning window.rootViewController not right
